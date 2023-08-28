@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :events
+  has_many :chatrooms, through: :chat_participants
+  has_many :messages
+  has_many :requests
+  has_many :notifications
 end
