@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :messages
   has_many :requests
   has_many :notifications
+  validates :username, uniqueness: true
+  validates :username, :description, :location, :gender, :age, presence: true
 end
