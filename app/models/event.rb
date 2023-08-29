@@ -4,4 +4,6 @@ class Event < ApplicationRecord
   has_one :chatroom
   has_many :notifications, :as => :notifiable
   validates :title, :description, :location, :capacity, :start_date, :end_date, presence: true
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end
