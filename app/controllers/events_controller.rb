@@ -4,6 +4,10 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    if params[:query].present?
+      sql_subquery = "title ILIKE :query OR location ILIKE :query"
+      @events = @events.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
@@ -16,7 +20,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
