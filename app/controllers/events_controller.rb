@@ -35,6 +35,23 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
     end
   end
   
+  def edit
+  end
+    
+  def update
+    if @event.update(event_params)
+      redirect_to @event, notice: "Event was successfully updated."
+    else
+      render :edit
+    end
+  end
+
+
+  def destroy
+   @event.delete
+     redirect_to root_path notice: "Event was successfully deleted."
+   end
+  
   private
 
   def set_event
