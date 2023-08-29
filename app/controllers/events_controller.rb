@@ -9,10 +9,12 @@ class EventsController < ApplicationController
     ##if params[:event][:photos].present?
       # params[:event][:photos].each do |photo|
       #   @event.photos.attach(photo)
+          @event.title
       #   @event.location
       #   @event.description
       #   @event.start_date
       #   @event.end_date
+          @event.capacity
      # end
     # end
     respond_to do |format|
