@@ -1,8 +1,6 @@
 class EventsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:index, :show]
-
-before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = Event.all
@@ -51,11 +49,10 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
     end
   end
 
-
   def destroy
-   @event.delete
-     redirect_to root_path notice: "Event was successfully deleted."
-   end
+    @event.delete
+    redirect_to root_path notice: "Event was successfully deleted."
+  end
 
   private
 
@@ -66,5 +63,4 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   def event_params
     params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :capacity)
   end
-
 end
