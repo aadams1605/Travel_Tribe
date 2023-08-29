@@ -1,6 +1,8 @@
-<h1><%= events.title %></h1>
-<h2><%= events.description %></h2>
-<h2><%= events.location %></h2>
-<h2><%= events.start_date %></h2>
-<h2><%= events.end_date %></h2>
-<h2><%= events.capacity %></h2>
+<%= @events.each do |event|%>
+<h2><%= event.title %></h2>
+<h2><%= event.description %></h2>
+<h2><%= event.location %></h2>
+<h2><%= event.start_date %></h2>
+<h2><%= event.end_date %></h2>
+<h2><%= event.capacity %></h2>
+<% end %>
