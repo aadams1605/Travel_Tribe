@@ -1,7 +1,15 @@
-<h2><%= @event.title %></h2>
-<h2><%= @event.description %></h2>
-<h2><%= @event.location %></h2>
-<h2><%= @event.start_date %></h2>
-<h2><%= @event.end_date %></h2>
-<h2><%= @event.capacity %></h2>
-<%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="container-event-show">
+  <div class= "card-grid">
+    <div class= "image-class">
+      <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>
+    </div>
+    <div class= "event-descriptions">
+      <h2 class="title"><%= @event.title %></h2>
+      <h2 class="description"><%= @event.description %></h2>
+      <h2 class="location"><%= @event.location %></h2>
+      <h2 class="start_date"><%= @event.start_date %></h2>
+      <h2 class="end_date"><%= @event.end_date %></h2>
+      <h2 class="capacity"><%= @event.capacity %></h2>
+    </div>
+  </div>
+</div>
