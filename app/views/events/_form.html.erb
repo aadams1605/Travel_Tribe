@@ -3,8 +3,10 @@
   <%= f.input :location %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
+  <%= f.input :title %>
+  <%= f.input :capacity %>
   <%= f.input :description %>
-  <%= f.input :photos, as: :file, input_html: { multiple:true, required:false }%>
+  <%= f.input :photo, as: :file, input_html: { required:false }%>
   <%= f.submit %>
 <% end %>
 </div>

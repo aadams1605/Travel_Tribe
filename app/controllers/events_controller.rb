@@ -18,15 +18,7 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    ##if params[:event][:photos].present?
-      # params[:event][:photos].each do |photo|
-      #   @event.photos.attach(photo)
-      #   @event.location
-      #   @event.description
-      #   @event.start_date
-      #   @event.end_date
-     # end
-    # end
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
@@ -62,7 +54,7 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :capacity)
+    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :capacity, :photo)
   end
 
 end
