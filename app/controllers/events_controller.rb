@@ -3,9 +3,9 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
 before_action :set_event, only: [:show, :edit, :update, :destroy]
-  
+
   def index
-    @events = Events.all
+    @events = Event.all
   end
 
   def show
@@ -37,10 +37,10 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
       end
     end
   end
-  
+
   def edit
   end
-    
+
   def update
     if @event.update(event_params)
       redirect_to @event, notice: "Event was successfully updated."
@@ -54,7 +54,7 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
    @event.delete
      redirect_to root_path notice: "Event was successfully deleted."
    end
-  
+
   private
 
   def set_event
