@@ -1,10 +1,22 @@
 <h2>My Dashboard</h2>
 <h3>welcome <%= current_user.username %> :)</h3>
 <ul>
-<li>My Events</li>
-<li>My Messages</li>
-<li>Upcoming Events</li>
-<li>Past Events</li>
-<li>Customer Support</li>
-<li>Notifications</li>
+<div><li>My Events</li></div>
+<div>Pending Requests</div>
+<% current_user.requests.each do |request| %>
+    <% if request.status == "pending" %>
+    <h4><%= link_to accept_path(request, {status: "confirmed"}), data: {turbo_method: :patch} do %>
+    <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i></h4>
+    <% end %>
+    <h4><%= link_to reject_path(request, {status: "cancelled"}), data: {turbo_method: :patch} do %>
+    <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
+    <% end %>
+    </h4>
+    <% end %>
+    <% end %>
+<div><li>My Messages</li></div>
+<div><li>Upcoming Events</li></div>
+<div><li>Past Events</li></div>
+<div><li>Customer Support</li></div>
+<div><li>Notifications</li></div>
 </ul>
