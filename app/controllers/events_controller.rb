@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def update
-    if @listing.update(event_params)
+    if @event.update(event_params)
       redirect_to @event, notice: "Event was successfully updated."
     else
       render :edit
