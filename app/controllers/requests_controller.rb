@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_event
+  before_action :set_event, only: :create
 
   def create
     @request = Request.new
@@ -18,15 +18,17 @@ class RequestsController < ApplicationController
   end
 
   def accept
+    @request = Request.find(params[:id])
     @request.status = "accepted"
     @request.save
-    redirect_to "/accounts/show"
+    redirect_to dashboard_path
   end
 
   def reject
+    @request = Request.find(params[:id])
     @request.status = "rejected"
     @request.save
-    redirect_to "/accounts/show"
+    redirect_to dashboard_path
   end
 
   def set_event

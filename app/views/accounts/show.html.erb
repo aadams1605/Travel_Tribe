@@ -5,15 +5,17 @@
 <div>Pending Requests</div>
 <% current_user.requests.each do |request| %>
     <% if request.status == "pending" %>
-    <h4><%= link_to accept_path(request, {status: "confirmed"}), data: {turbo_method: :patch} do %>
+    <p>Event: <%= request.event.title %> Requester: <%= request.user.username %>
+    <h4><%= link_to accept_path(request), data: {turbo_method: :patch} do %>
     <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i></h4>
     <% end %>
-    <h4><%= link_to reject_path(request, {status: "cancelled"}), data: {turbo_method: :patch} do %>
+    <h4><%= link_to reject_path(request), data: {turbo_method: :patch} do %>
     <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
     <% end %>
     </h4>
     <% end %>
     <% end %>
+  </p>
 <div><li>My Messages</li></div>
 <div><li>Upcoming Events</li></div>
 <div><li>Past Events</li></div>
