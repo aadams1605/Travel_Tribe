@@ -5,9 +5,17 @@
   <% end %>
 <% end %>
 
-<br><br>
+<br>
 
-<%= render "events_map" %>
+<div data-controller="toggle" class="mt-5">
+  <div class="toggle-map" data-action="click->toggle#fire">
+    <i class="fa-solid fa-map-location-dot" style="color: #0b7176;"></i>
+    <p data-toggle-target="text">Show on map</p>
+  </div>
+  <div data-toggle-target="togglableElement" class="d-none">
+    <%= render "events_map", events: @event %>
+  </div>
+</div>
 
 <% @events.each do |event|%>
   <h2><%= event.title %></h2>
