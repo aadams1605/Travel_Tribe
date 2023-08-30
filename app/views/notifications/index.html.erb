@@ -1,0 +1,4 @@
+<h2>Notifications</h2>
+<% current_user.notifications.each do |notification| %>
+<p><%= link_to notification.content, dashboard_path(notification) %></p>
+<% end %>

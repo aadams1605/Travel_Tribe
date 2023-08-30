@@ -3,6 +3,18 @@
   background: #097176;
 }
 
+#navbarSupportedContent {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  align-items: center;
+}
+.container-nav {
+  padding: 0px 15px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
