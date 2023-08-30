@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :events
   get "accounts/show", to: "accounts#show"
   resources :users, only: [:index, :show]
+  get '/search', to: 'application#search'
 end
