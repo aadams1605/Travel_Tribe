@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   patch "/requests/:id/accept", to: "requests#accept", as: "accept"
   patch "/requests/:id/reject", to: "requests#reject", as: "reject"
   resources :users, only: [:index, :show]
+  get '/search', to: 'application#search'
 end
