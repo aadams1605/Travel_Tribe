@@ -1,15 +1,25 @@
 <div class="container-event-show">
-  <div class= "card-grid">
-    <div class= "image-class">
-      <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>
-    </div>
-    <div class= "event-descriptions">
-      <h2 class="title"><%= @event.title %></h2>
-      <h2 class="description"><%= @event.description %></h2>
-      <h2 class="location"><%= @event.location %></h2>
-      <h2 class="start_date"><%= @event.start_date %></h2>
-      <h2 class="end_date"><%= @event.end_date %></h2>
-      <h2 class="capacity"><%= @event.capacity %></h2>
+  <div class="card-grid">
+      <%= cl_image_tag @event.photo.key %>
+    <div class="event-descriptions">
+      <div class="description-column">
+        <div class="row">
+          <h2 class="listing"> <%= @event.title %></h2>
+          <h2 class="listing"> <%= @event.description %></h2>
+        </div>
+        <div class="row">
+          <h2 class="listing"> <%= @event.location %></h2>
+        </div>
+      </div>
+      <div class="description-column">
+        <div class="row">
+          <h2 class="listing"> <%= @event.start_date %></h2>
+          <h2 class="listing"> <%= @event.end_date %></h2>
+        </div>
+        <div class="row">
+          <h2 class="listing"> <%= @event.capacity %></h2>
+        </div>
+      </div>
     </div>
   </div>
 </div>

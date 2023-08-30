@@ -1,0 +1,40 @@
+.container-event-show {
+  margin: 100px auto;
+  width: 80%;
+}
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.card-grid img {
+  height: 250px;
+  width: 100%;
+  border-radius: 20px 20px 0px 0px;
+  object-fit: cover;
+}
+
+.event-descriptions {
+  display: flex;
+  text-align: left;
+  background-color: antiquewhite;
+  border-radius: 0px 0px 20px 20px;
+  background-color: #097176;
+}
+
+.description-column {
+  flex: 1;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.listing {
+  color: white;
+  font-size: 15px;
+}
