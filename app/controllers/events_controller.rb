@@ -11,6 +11,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @chatroom = @event.chatroom
+    @message = Message.new(chatroom: @chatroom)
     @marker = [{
       lat: @event.latitude,
       lng: @event.longitude

@@ -12,5 +12,6 @@
   <h2><%= event.start_date %></h2>
   <h2><%= event.end_date %></h2>
   <h2><%= event.capacity %></h2>
+  <%= link_to "View", event_path(event) %>
   <%#= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
