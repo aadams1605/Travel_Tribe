@@ -1,7 +1,3 @@
-
-<%= render "shared/search" %>
-<%= render "events_map" %>
-
 <%= form_with(url: events_path, method: "get", local: true, class: "search-form-control form-group") do |form| %>
   <%= form.text_field :query, class: "form-control string required", id: "search_query", placeholder: "Search Event by name/location..." %>
   <%= form.button type: "submit", class: "btn btn-flat" do %>
@@ -9,6 +5,9 @@
   <% end %>
 <% end %>
 
+<br><br>
+
+<%= render "events_map" %>
 
 <% @events.each do |event|%>
   <h2><%= event.title %></h2>
@@ -17,5 +16,7 @@
   <h2><%= event.start_date %></h2>
   <h2><%= event.end_date %></h2>
   <h2><%= event.capacity %></h2>
-  <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if event.photo.key %>
+    <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 <% end %>
