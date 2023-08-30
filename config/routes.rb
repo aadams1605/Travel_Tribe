@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "accounts/show", to: "accounts#show", as: "dashboard"
   patch "/requests/:id/accept", to: "requests#accept", as: "accept"
   patch "/requests/:id/reject", to: "requests#reject", as: "reject"
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resources :notifications, only: :index, as: "notifications"
+  end
   get '/search', to: 'application#search'
 end

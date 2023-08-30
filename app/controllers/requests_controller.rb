@@ -6,14 +6,16 @@ class RequestsController < ApplicationController
     @request.user = current_user
     @request.event = @event
 
-    respond_to do |format|
-      if @request.save
-        format.html { redirect_to event_url(@event), notice: "request was successfully created." }
-        format.json { render :show, status: :created, location: @request }
-      else
-        format.html { render :new, status: :unprocessable_entity, alert: "request was unsuccessful." }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
-      end
+    if @request.save
+      @notification = Notification.create(
+        content: "New request to join your event #{@event.title}",
+        user: @event.user,
+        notifiable_type: @event.class.name,
+        notifiable_id: @event.id
+      )
+      redirect_to event_url(@event), notice: "request was successfully created."
+    else
+      render :new, status: :unprocessable_entity, alert: "request was unsuccessful."
     end
   end
 
@@ -21,6 +23,12 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @request.status = "accepted"
     @request.save
+    @notification = Notification.create(
+      content: "Your request to join the event: #{@request.event.title} has been Accepted",
+      user: @request.user,
+      notifiable_type: @request.event.class.name,
+      notifiable_id: @request.event.id
+    )
     redirect_to dashboard_path
   end
 
@@ -28,6 +36,12 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @request.status = "rejected"
     @request.save
+    @notification = Notification.create(
+      content: "Your request to join the event: #{@request.event.title} has been Rejected",
+      user: @request.user,
+      notifiable_type: @request.event.class.name,
+      notifiable_id: @request.event.id
+    )
     redirect_to dashboard_path
   end
 
