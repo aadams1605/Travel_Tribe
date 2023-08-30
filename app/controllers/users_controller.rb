@@ -2,12 +2,10 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    query = params[:query]
-
-    if query.present?
-      @users = User.where("username LIKE ?", "%#{query}%")
-    else
-      @users = User.all
+    @users = User.all
+    if params[:query].present?
+      sql_subquery = "username ILIKE :query OR location ILIKE :query"
+      @users = @users.where(sql_subquery, query: "%#{params[:query]}%")
     end
   end
 
