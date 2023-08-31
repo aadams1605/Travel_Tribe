@@ -1,24 +1,55 @@
-<h2>My Dashboard</h2>
-<h3>welcome <%= current_user.username %> :)</h3>
-<ul>
-<div><li>My Events</li></div>
-<div>Pending Requests</div>
-<% current_user.requests.each do |request| %>
-    <% if request.status == "pending" %>
-    <p>Event: <%= request.event.title %> Requester: <%= request.user.username %>
-    <h4><%= link_to accept_path(request), data: {turbo_method: :patch} do %>
-    <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i></h4>
-    <% end %>
-    <h4><%= link_to reject_path(request), data: {turbo_method: :patch} do %>
-    <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
-    <% end %>
-    </h4>
-    <% end %>
-    <% end %>
-  </p>
-<div><li>My Messages</li></div>
-<div><li>Upcoming Events</li></div>
-<div><li>Past Events</li></div>
-<div><li>Customer Support</li></div>
-<div><li>Notifications</li></div>
-</ul>
+  <h2>My Dashboard</h2>
+  <h3>Welcome <%= current_user.username %> :)</h3>
+
+  <div class="container">
+    <div class="section">
+      <h4>My Events</h4>
+      <div class="subsection">
+        <h5>Upcoming Events</h5>
+        <% current_user.events.each do |event| %>
+          <% if event.start_date >= Date.today %>
+            <p><%= link_to event.title, event_url(event) %></p>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="subsection">
+        <h5>Past Events</h5>
+        <% current_user.events.each do |event| %>
+          <% if event.start_date < Date.today %>
+            <p><%= link_to event.title, event_url(event) %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="section">
+      <h4>Pending Requests</h4>
+      <div class="notification">
+        <% current_user.requests.each do |request| %>
+          <% if request.status == "pending" %>
+            <div class="notification-item">
+              <div class="notification-content">
+                <p>Event: <%= request.event.title %> | Requester: <%= request.user.username %></p>
+              </div>
+              <div class="notification-actions">
+                <%= link_to accept_path(request), data: {turbo_method: :patch} do %>
+                  <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i>
+                <% end %>
+                <%= link_to reject_path(request), data: {turbo_method: :patch} do %>
+                  <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="section">
+      <h4>My Messages</h4>
+    </div>
+
+    <div class="section">
+      <h4>Customer Support</h4>
+    </div>
+  </div>
