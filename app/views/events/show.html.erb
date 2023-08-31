@@ -29,3 +29,19 @@
 <%= button_to "Join Event" , event_requests_path(@event) %>
 
 <%= render "map" %>
+
+<div class="chatroom">
+  <h2>Chatroom</h2>
+  <%= render "messages/new", chatroom: @chatroom %>
+
+  <div class="chatroom-container"
+    data-controller="chatroom-subscription"
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  <div class="messages" data-chatroom-subscription-target="messages">
+  <% @chatroom.messages.each do |message| %>
+    <%= render "messages/messages", message: message %>
+  <% end %>
+  </div>
+</div>
+
+<%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>

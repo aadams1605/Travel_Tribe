@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: "events#index"
   resources :events do
     resources :requests, only: :create
+    resources :chatrooms, only: :show do
+      resources :messages, only: [:new, :create]
+    end
   end
+
   get "accounts/show", to: "accounts#show", as: "dashboard"
   patch "/requests/:id/accept", to: "requests#accept", as: "accept"
   patch "/requests/:id/reject", to: "requests#reject", as: "reject"
