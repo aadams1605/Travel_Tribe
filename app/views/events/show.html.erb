@@ -26,6 +26,8 @@
   </div>
 </div>
 
+<%= link_to "Edit Event", edit_event_path if policy(Event).edit? %>
+<%= link_to "Delete Event", destroy_event_path if policy(Restaurant).delete? %>
 <%= button_to "Join Event" , event_requests_path(@event) %>
 
 <%= render "map" %>
