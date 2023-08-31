@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    authorize @event
     @events = Event.all
     @event = Event.new
     if params[:query].present?
@@ -21,7 +20,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    authorize @event
     @chatroom = @event.chatroom
     @message = Message.new(chatroom: @chatroom)
     @marker = [{
@@ -35,7 +33,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    authorize @event
     @event = Event.new(event_params)
     @event.user = current_user
 
@@ -51,11 +48,9 @@ class EventsController < ApplicationController
   end
 
   def edit
-    authorize @event
   end
 
   def update
-    authorize @event
     if @event.update(event_params)
       redirect_to @event, notice: "Event was successfully updated."
     else
@@ -64,9 +59,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    authorize @event
-    @event.delete
-    redirect_to root_path notice: "Event was successfully deleted."
+    @event.destroy
+    redirect_to root_path, alert: "Event was successfully deleted."
   end
 
   private
