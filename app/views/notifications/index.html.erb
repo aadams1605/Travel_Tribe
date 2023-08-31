@@ -1,4 +1,17 @@
 <h2>Notifications</h2>
 <% current_user.notifications.each do |notification| %>
-<p><%= link_to notification.content, dashboard_path(notification) %></p>
+<div class="notification">
+  <% if notification.user.photo.attached? %>
+    <%= link_to image_tag( url_for(notification.user.photo),class: "avatar-small") %>
+  <% else %>
+    <%= link_to image_tag("default_avatar.jpg", class: "avatar-small" ) %>
+  <% end %>
+  <div class="notification-content">
+    <p><small><%= notification.created_at.strftime("%e %h %H:%M") %></small></p>
+    <p><%= link_to notification.content, dashboard_path(notification) %></p>
+  </div>
+  <div class="notification-actions">
+    <a href="#"><i class="fa-solid fa-envelope-open-text fa-2xl"></i></a>
+  </div>
+</div>
 <% end %>
