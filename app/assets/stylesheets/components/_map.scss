@@ -33,7 +33,8 @@
   object-fit: cover;
 }
 
-.mapboxgl-popup-content h2{
+.mapboxgl-popup-content h2 a{
+  text-decoration: none;
   color: #097176;
 }
 
