@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_one_attached :photo, dependent: :destroy
   validates :username, uniqueness: true
   validates :username, :description, :location, :gender, :age, presence: true
 end
