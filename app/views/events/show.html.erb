@@ -1,9 +1,30 @@
-<h2><%= @event.title %></h2>
-<h2><%= @event.description %></h2>
-<h2><%= @event.location %></h2>
-<h2><%= @event.start_date %></h2>
-<h2><%= @event.end_date %></h2>
-<h2><%= @event.capacity %></h2>
+<div class="container-event-show">
+  <div class="card-grid">
+      <% if @event.photo.key %>
+        <%= cl_image_tag @event.photo.key %>
+      <% end %>
+    <div class="event-descriptions">
+      <div class="description-column">
+        <div class="row">
+          <h2 class="listing"> <%= @event.title %></h2>
+          <h2 class="listing"> <%= @event.description %></h2>
+        </div>
+        <div class="row">
+          <h2 class="listing"> <%= @event.location %></h2>
+        </div>
+      </div>
+      <div class="description-column">
+        <div class="row">
+          <h2 class="listing"> <%= @event.start_date %></h2>
+          <h2 class="listing"> <%= @event.end_date %></h2>
+        </div>
+        <div class="row">
+          <h2 class="listing"> <%= @event.capacity %></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= button_to "Join Event" , event_requests_path(@event) %>
 
