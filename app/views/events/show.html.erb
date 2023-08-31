@@ -1,6 +1,8 @@
 <div class="container-event-show">
   <div class="card-grid">
-      <%= cl_image_tag @event.photo.key %>
+      <% if @event.photo.key %>
+        <%= cl_image_tag @event.photo.key %>
+      <% end %>
     <div class="event-descriptions">
       <div class="description-column">
         <div class="row">
