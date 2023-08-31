@@ -25,6 +25,6 @@
   <h2><%= event.end_date %></h2>
   <h2><%= event.capacity %></h2>
   <% if event.photo.key %>
-    <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag event.photo.key, crop: :fill, class:"events-image" %>
   <% end %>
 <% end %>
