@@ -5,9 +5,12 @@
 
 #navbarSupportedContent {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 50%;
   align-items: center;
+}
+#navbarSupportedContent > * {
+  margin-left: 12px;
 }
 .container-nav {
   padding: 0px 15px;
@@ -19,9 +22,19 @@
   flex-grow: 0;
 }
 
+.navbar-brand {
+  align-items: center;
+  display: flex;
+}
+
+.navbar-brand p {
+  margin: 0;
+}
+
 .navbar-lewagon .navbar-brand img {
-  width: 100px;
-  height: auto;
+  width: auto;
+  height: 50px;
+  margin-right: 5px;
 }
 
 .nav-link {
@@ -69,4 +82,14 @@ p {
 
 .search-form {
   padding: 36px 8px;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+#logoname {
+  color: white;
+  font-size: 14px;
+  font-family: 'Dancing Script', cursive;
 }
