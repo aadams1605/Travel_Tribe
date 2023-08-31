@@ -13,6 +13,8 @@ export default class extends Controller {
     if (this.togglableElementTarget.classList.contains("d-none")) {
       this.textTarget.textContent = "Show on map";
     } else {
+      const event = new CustomEvent("showMap");
+      window.dispatchEvent(event);
       this.textTarget.textContent = "Close map";
     }
   }

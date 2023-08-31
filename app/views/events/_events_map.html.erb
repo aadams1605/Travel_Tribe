@@ -1,5 +1,6 @@
 <div class="map"
   data-controller="events-map"
+  data-action="showMap@window->events-map#resize"
   data-events-map-markers-value="<%= @markers.to_json %>"
   data-events-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
