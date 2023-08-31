@@ -59,8 +59,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event.delete
-    redirect_to root_path notice: "Event was successfully deleted."
+    @event.destroy
+    redirect_to root_path, alert: "Event was successfully deleted."
   end
 
   private

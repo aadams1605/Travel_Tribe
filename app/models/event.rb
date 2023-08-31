@@ -1,7 +1,6 @@
 class Event < ApplicationRecord
-
   after_create :create_chatroom
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   has_many :requests, dependent: :destroy
   has_one :chatroom, dependent: :destroy
   has_one_attached :photo, dependent: :destroy

@@ -17,6 +17,8 @@
   </div>
 </div>
 
+<%= link_to "Create Event", new_event_path %>
+
 <% @events.each do |event|%>
   <h2><%= event.title %></h2>
   <h2><%= event.description %></h2>
