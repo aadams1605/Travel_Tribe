@@ -6,9 +6,11 @@ class MessagesController < ApplicationController
     @message.chatroom = @chatroom
     @message.user = current_user
     if @message.save
-      redirect_to event_path(@event)
-    else
-      render :event, status: :unprocessable_entity
+      ChatroomChannel.broadcast_to(
+        @chatroom,
+        render_to_string(partial: "messages", locals: {message: @message})
+      )
+      head :ok
     end
   end
 
