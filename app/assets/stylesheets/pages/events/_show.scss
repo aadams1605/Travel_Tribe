@@ -1,0 +1,66 @@
+.edit-button {
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.delete-button {
+  display: inline-block;
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Join Event button */
+.join-button {
+  display: inline-block;
+  background-color: #27ae60;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Chatroom container */
+.chatroom {
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.chatroom h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Chatroom input and messages */
+.chatroom-container {
+  margin-top: 20px;
+}
+
+/* Messages container */
+.messages {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Message styling */
+.message {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
