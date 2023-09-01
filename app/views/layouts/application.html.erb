@@ -24,7 +24,9 @@
     <p class="alert"><%= flash[:alert] %></p>
   <% end %>
 
-  <%= yield %>
+  <div>
+    <%= yield %>
+  </div>
   <%= render "shared/footer" %>
   </body>
 </html>
