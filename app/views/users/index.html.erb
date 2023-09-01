@@ -1,31 +1,35 @@
-<%= form_with(url: users_path, method: "get", local: true, class: "search-form-control form-group") do |form| %>
-  <%= form.text_field :query, class: "form-control string required", id: "search_query", placeholder: "Search User by username/location..." %>
-  <%= form.button type: "submit", class: "btn btn-flat" do %>
-    <i class="fas fa-search"></i> Search
+<div class="container-event-show">
+  <%= form_with(url: users_path, method: "get", local: true, class: "search-form-control form-group") do |form| %>
+    <%= form.text_field :query, class: "form-control string required", id: "search_query", placeholder: "Search User by username/location" %>
+    <%= form.button type: "submit", class: "btn btn-flat" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+    <br>
   <% end %>
-<% end %>
 
-<% @users.each do |user|%>
-  <a href="<%= user_path(user) %>">
-    <div class="container-event-show">
-      <div class="card-grid">
-        <% if user.photo.key %>
-          <%= cl_image_tag user.photo.key, crop: :fill, class:"events-image" %>
-        <% else %>
-          <%= image_tag "TT_Logo.png" %>
-        <% end %>
-        <div class="event-descriptions">
-          <div class="description-column">
-            <div class="row">
-              <h2 class="title"><%= user.username %></h2>
-              <h2 class="listing"><%= user.description %></h2>
-              <h2 class="listing"><%= user.location %></h2>
-              <h2 class="listing"><%= user.gender %></h2>
-              <h2 class="listing"><%= user.age %></h2>
+  <% @users.each do |user|%>
+    <a href="<%= user_path(user) %>">
+      <%# <div class="container-event-show"> %>
+        <div class="card-grid">
+          <% if user.photo.key %>
+            <%= cl_image_tag user.photo.key, crop: :fill, class:"events-image" %>
+          <% else %>
+            <%= image_tag "TT_Logo.png" %>
+          <% end %>
+          <div class="event-descriptions">
+            <div class="description-column">
+              <div class="row">
+                <h2 class="title"><%= user.username %></h2>
+                <h2 class="listing"><%= user.description %></h2>
+                <h2 class="listing"><%= user.location %></h2>
+                <h2 class="listing"><%= user.gender %></h2>
+                <h2 class="listing"><%= user.age %></h2>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </a>
-<% end %>
+      <%# </div> %>
+      <br>
+    </a>
+  <% end %>
+</div>
