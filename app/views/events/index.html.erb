@@ -16,7 +16,6 @@
     </div>
   </div>
 
-  <%= link_to "Create Event", new_event_path %>
 
   <% @events.each do |event|%>
   <a href="<%= event_path(event) %>">
