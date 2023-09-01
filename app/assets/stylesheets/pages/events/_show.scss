@@ -21,6 +21,20 @@
   cursor: pointer;
 }
 
+.event-links {
+  display: flex;
+  justify-content: space-around;
+  width: 75%;
+}
+
+.container-join-event {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -60px;
+}
+
 /* Join Event button */
 .join-button {
   display: inline-block;

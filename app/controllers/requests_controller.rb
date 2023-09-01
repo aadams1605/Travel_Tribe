@@ -13,9 +13,9 @@ class RequestsController < ApplicationController
         notifiable_type: @event.class.name,
         notifiable_id: @event.id
       )
-      redirect_to event_url(@event), notice: "request was successfully created."
+      redirect_to event_url(@event), notice: "Request to join event was sent!"
     else
-      render :new, status: :unprocessable_entity, alert: "request was unsuccessful."
+      render :new, status: :unprocessable_entity, alert: "Request was unsuccessful."
     end
   end
 
