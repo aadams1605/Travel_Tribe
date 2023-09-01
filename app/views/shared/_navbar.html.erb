@@ -14,10 +14,11 @@
               <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu", style: "object-fit: cover", id: "navbarDropdown" %>
               <% else %>
-                <li class="nav-link" class="dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</li>
+                <%= image_tag "default_avatar.jpg", class: "avatar", alt: "dropdown menu", style: "object-fit: cover", id: "navbarDropdown" %>
               <% end %>
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Create Event", new_event_path, class: "dropdown-item" %>
                 <%= link_to "Event Notifications", user_notifications_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Messages", "#", class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
