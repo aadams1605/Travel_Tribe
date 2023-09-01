@@ -1,0 +1,27 @@
+/* _button-links.scss */
+
+.button-link {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &.primary {
+    background-color: #3498db; /* Blue color, change as needed */
+    color: #fff;
+  }
+
+  &.danger {
+    background-color: #e74c3c; /* Red color, change as needed */
+    color: #fff;
+  }
+
+  &:hover {
+    filter: brightness(1.2); /* Adjust the brightness on hover, change as needed */
+  }
+}
