@@ -3,7 +3,8 @@ class AccountsController < ApplicationController
   before_action :set_user
 
   def show
-    @user = current_user
+    @requests = @user.requests
+    @events = Event.where(id: @requests.pluck(:event_id).uniq)
   end
 
   private

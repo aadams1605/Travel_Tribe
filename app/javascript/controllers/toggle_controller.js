@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["togglableElement", "text"]
   connect() {
-    console.log("helloooooo")
+
   }
 
   fire() {
@@ -18,4 +18,9 @@ export default class extends Controller {
       this.textTarget.textContent = "Close map";
     }
   }
+
+  display(){
+    this.togglableElementTarget.classList.toggle("d-none")
+  }
+
 }

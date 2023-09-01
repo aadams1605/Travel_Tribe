@@ -13,14 +13,14 @@
   border-radius: 5px;
 }
 
-.notification {
+.notifications {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 /* Style for notification items */
-.notification-item {
+.notifications-item {
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #e0e0e0;
@@ -31,7 +31,7 @@
 }
 
 /* Style for notification actions */
-.notification-actions {
+.notifications-actions {
   display: flex;
   gap: 10px;
 }
