@@ -15,7 +15,7 @@
       <%= render "events_map", events: @event %>
     </div>
   </div>
-  
+
   <%= link_to "Create Event", new_event_path %>
 
   <% @events.each do |event|%>
@@ -23,6 +23,8 @@
     <div class="card-grid">
       <% if event.photo.key %>
         <%= cl_image_tag event.photo.key, crop: :fill, class:"events-image" %>
+      <% else %>
+        <%= image_tag "TT_Logo.png" %>
       <% end %>
       <div class="event-descriptions">
         <div class="description-column">
