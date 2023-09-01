@@ -18,6 +18,7 @@
               <% end %>
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "My Profile", dashboard_path, class: "dropdown-item" %>
                 <%= link_to "Create Event", new_event_path, class: "dropdown-item" %>
                 <%= link_to "Event Notifications", user_notifications_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Messages", "#", class: "dropdown-item" %>
