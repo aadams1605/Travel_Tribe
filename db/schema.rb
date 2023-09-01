@@ -42,13 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_133117) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "chat_participant", force: :cascade do |t|
+  create_table "chat_participants", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "chatroom_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chatroom_id"], name: "index_chat_participant_on_chatroom_id"
-    t.index ["user_id"], name: "index_chat_participant_on_user_id"
+    t.index ["chatroom_id"], name: "index_chat_participants_on_chatroom_id"
+    t.index ["user_id"], name: "index_chat_participants_on_user_id"
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -125,8 +125,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_133117) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "chat_participant", "chatrooms"
-  add_foreign_key "chat_participant", "users"
+  add_foreign_key "chat_participants", "chatrooms"
+  add_foreign_key "chat_participants", "users"
   add_foreign_key "chatrooms", "events"
   add_foreign_key "events", "users"
   add_foreign_key "messages", "chatrooms"
