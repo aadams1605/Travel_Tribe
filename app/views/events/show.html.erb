@@ -21,7 +21,9 @@
 
   <div class="event-links">
     <div class="chat-button-container link">
+      <% if @attendees.include?(current_user) %>
       <%= link_to "Event Chat", event_chatroom_path(@chatroom, template: "chatrooms/show") %>
+      <% end %>
     </div>
     <div class="chat-button-container link">
       <%= link_to "Edit Event", edit_event_path(@event) if @event.user == current_user %>
