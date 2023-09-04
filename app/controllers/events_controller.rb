@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @event = Event.new
     if params[:query].present?
       sql_subquery = "title ILIKE :query OR location ILIKE :query"
-      @events = @events.where(sql_subquery, query: "%#{params[:query]}%")
+      @events = Event.where(sql_subquery, query: "%#{params[:query]}%")
     end
 
     @markers = @events.geocoded.map do |event|
