@@ -20,13 +20,17 @@
         </div>
         <div class="row">
           <h2 class="listing">Capacity: <%= @event.capacity %></h2>
+          <h2 class="listing">Hosted by: <%= @event.user.username %></h2>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="container-join-event">
-  <%= button_to "Join Event" , event_requests_path(@event), class: "button" %>
+  <% if current_user != @event.user %>
+    <%= button_to "Join Event" , event_requests_path(@event), class: "button" %>
+  <% end %>
 
   <div class="event-links">
     <div class="chat-button-container link">
