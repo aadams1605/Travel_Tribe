@@ -6,20 +6,11 @@
     <div class="event-descriptions">
       <div class="description-column">
         <div class="row">
-          <h2 class="listing"> <%= @event.title %></h2>
-          <h2 class="listing">Description: <%= @event.description %></h2>
-        </div>
-        <div class="row">
-          <h2 class="listing"> Location: <%= @event.location %></h2>
-        </div>
-      </div>
-      <div class="description-column">
-        <div class="row">
-          <h2 class="listing">Start date: <%= @event.start_date %></h2>
-          <h2 class="listing">End date: <%= @event.end_date %></h2>
-        </div>
-        <div class="row">
-          <h2 class="listing">Capacity: <%= @event.capacity %></h2>
+          <h2 class="title"> <%= @event.title %></h2>
+          <h2 class="listing"><%= @event.description %></h2>
+          <h2 class="listing"><%= @event.start_date %> to <%= @event.end_date %></h2>
+          <h2 class="listing"> <i class="fa-sharp fa-solid fa-location-dot" style="color: #ffffff;"></i> <%= @event.location %></h2>
+          <div class="icon-right"><h2 class="listing"> <i class="fa-solid fa-user" style="color: #ffffff;"></i> <%= @event.capacity %></h2></div>
         </div>
       </div>
     </div>
