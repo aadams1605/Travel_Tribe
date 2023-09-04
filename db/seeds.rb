@@ -9,22 +9,22 @@ Event.destroy_all
 User.destroy_all
 
 james = URI.open("https://t3.ftcdn.net/jpg/03/28/19/46/360_F_328194664_RKSHvMLgHphnD1nwQYb4QKcNeEApJmqa.jpg")
-user = User.new(username: "james", email: "james@gmail.com", password: "123123", description: "I'm from London, I like trekkings and meeting new people", location: "Barcelona Spain", gender:"male", age:"30")
+user = User.new(username: "James", email: "james@gmail.com", password: "123123", description: "I'm from London, I like trekkings and meeting new people", location: "Barcelona Spain", gender:"male", age:"30")
 user.photo.attach(io: james, filename: "James.jpg", content_type: "image/jpg")
 user.save
 
 john = URI.open("https://t4.ftcdn.net/jpg/02/45/56/35/360_F_245563558_XH9Pe5LJI2kr7VQuzQKAjAbz9PAyejG1.jpg")
-user = User.new(username: "john", email: "john@gmail.com", password: "123123", description: "I'm from Paris, I like museums", location: "Barcelona Spain", gender:"male", age:"28")
+user = User.new(username: "John", email: "john@gmail.com", password: "123123", description: "I'm from Paris, I like museums", location: "Barcelona Spain", gender:"male", age:"28")
 user.photo.attach(io: john, filename: "John.jpg", content_type: "image/jpg")
 user.save
 
 maria = URI.open("https://www.beandbe.com/wp-content/uploads/2016/07/pexels-photo-27411.jpg")
-user = User.new(username: "maria", email: "maria@gmail.com", password: "123123", description: "I'm from Berlin, I really enjoy adventures and sports", location: "Barcelona Spain", gender:"female", age:"32")
+user = User.new(username: "Maria", email: "maria@gmail.com", password: "123123", description: "I'm from Berlin, I really enjoy adventures and sports", location: "Barcelona Spain", gender:"female", age:"32")
 user.photo.attach(io: maria, filename: "Maria.jpg", content_type: "image/jpg")
 user.save
 
 paul = URI.open("https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg")
-user = User.new(username: "paul", email: "paul@gmail.com", password: "123123", description: "I'm from Italy, I like music", location: "Barcelona Spain", gender:"male", age:"33")
+user = User.new(username: "Paul", email: "paul@gmail.com", password: "123123", description: "I'm from Italy, I like music", location: "Barcelona Spain", gender:"male", age:"33")
 user.photo.attach(io: paul, filename: "Paul.jpg", content_type: "image/jpg")
 user.save
 
