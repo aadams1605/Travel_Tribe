@@ -1,8 +1,10 @@
 <div class="form-container">
 <%= simple_form_for(event) do |f| %>
   <%= f.input :location %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%= f.input :start_date, as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :end_date, as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :title %>
   <%= f.input :capacity %>
   <%= f.input :description %>

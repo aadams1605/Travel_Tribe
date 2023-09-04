@@ -6,20 +6,11 @@
     <div class="event-descriptions">
       <div class="description-column">
         <div class="row">
-          <h2 class="listing"> <%= @event.title %></h2>
-          <h2 class="listing">Description: <%= @event.description %></h2>
-        </div>
-        <div class="row">
-          <h2 class="listing"> Location: <%= @event.location %></h2>
-        </div>
-      </div>
-      <div class="description-column">
-        <div class="row">
-          <h2 class="listing">Start date: <%= @event.start_date %></h2>
-          <h2 class="listing">End date: <%= @event.end_date %></h2>
-        </div>
-        <div class="row">
-          <h2 class="listing">Capacity: <%= @event.capacity %></h2>
+          <h2 class="title"> <%= @event.title %></h2>
+          <h2 class="listing"><%= @event.description %></h2>
+          <h2 class="listing"><%= @event.start_date %> to <%= @event.end_date %></h2>
+          <h2 class="listing"> <i class="fa-sharp fa-solid fa-location-dot" style="color: #ffffff;"></i> <%= @event.location %></h2>
+          <div class="icon-right"><h2 class="listing"> <i class="fa-solid fa-user" style="color: #ffffff;"></i> <%= @event.capacity %></h2></div>
           <h2 class="listing">Hosted by: <%= @event.user.username %></h2>
         </div>
       </div>
@@ -34,6 +25,11 @@
 
   <div class="event-links">
     <div class="chat-button-container link">
+      <% if @attendees.include?(current_user) %>
+      <%= link_to "Event Chat", event_chatroom_path(@chatroom, template: "chatrooms/show") %>
+      <% end %>
+    </div>
+    <div class="chat-button-container link">
       <%= link_to "Edit Event", edit_event_path(@event) if @event.user == current_user %>
     </div>
     <div class="chat-button-container link">
@@ -44,17 +40,5 @@
   </div>
 </div>
 
-<%= render "map" %>
 
-<div class="chatroom">
-  <h2>Event Chat</h2>
-  <div class="chatroom-container"
-    data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-  <div class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/messages", message: message %>
-  <% end %>
-  </div>
-  <%= render "messages/new", chatroom: @chatroom %>
-</div>
+<%= render "map" %>

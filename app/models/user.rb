@@ -12,4 +12,10 @@ class User < ApplicationRecord
   has_one_attached :photo, dependent: :destroy
   validates :username, uniqueness: true
   validates :username, :description, :location, :gender, :age, presence: true
+
+  before_save :capitalize
+
+  def capitalize
+    self.username = self.username.capitalize
+  end
 end
