@@ -20,6 +20,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @attendees = User.joins(:requests).where(requests: { event_id: @event.id, status: "accepted" })
     @chatroom = @event.chatroom
     @marker = [{
       lat: @event.latitude,
