@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :set_params, only: [:show]
+  before_action :find_existing_chatroom, only: [:show]
 
   def index
     @users = User.all
@@ -17,5 +18,12 @@ class UsersController < ApplicationController
 
   def set_params
     @user = User.find(params[:id])
+  end
+
+  def find_existing_chatroom
+    @existing_chatroom = Chatroom.where(is_direct: true).find do |chatroom|
+      chatroom.chat_participants.exists?(user_id: @user.id) &&
+        chatroom.chat_participants.exists?(user_id: current_user.id)
+    end
   end
 end
