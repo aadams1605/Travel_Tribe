@@ -18,10 +18,12 @@
   </div>
 </div>
 
-<div class="container-join-event">
-  <% if current_user != @event.user %>
-    <%= button_to "Join Event" , event_requests_path(@event), class: "button" %>
-  <% end %>
+  <div class="container-join-event">
+    <% if @event.attendees.count < @event.capacity && current_user != @event.user %>
+        <%= button_to "Join Event" , event_requests_path(@event), class: "button" %>
+    <% elsif @event.attendees.count >= @event.capacity && current_user != @event.user %>
+        <span>The event is now full.</span>
+    <% end %>
 
   <div class="event-links">
     <div class="chat-button-container link">

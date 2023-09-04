@@ -9,6 +9,14 @@ class Event < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
+  def attendees
+    User.joins(:requests).where(requests: { event: self, status: "accepted" })
+  end
+
+  def is_full?
+    self.attendees.count >= self.capacity
+  end
+
   private
 
   def create_chatroom
