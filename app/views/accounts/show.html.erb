@@ -49,27 +49,43 @@
     <div class="section" data-controller="toggle">
       <h4 data-action="click->toggle#display">Pending Requests</h4>
       <div class="subsection d-none" data-toggle-target="togglableElement">
-      <div class="notifications">
-        <% current_user.requests.each do |request| %>
-          <% if request.status == "pending" %>
-            <div class="notifications-item">
-              <div class="notifications-content">
-                <p>Event: <%= request.event.title %> | Requester: <%= request.user.username %></p>
-              </div>
-              <div class="notifications-actions">
-                <%= link_to accept_path(request), data: {turbo_method: :patch} do %>
-                  <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i>
-                <% end %>
-                <%= link_to reject_path(request), data: {turbo_method: :patch} do %>
-                  <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
+        <div class="notifications">
+
+
+          <% if @received_requests %>
+            <% @received_requests.each do |request| %>
+              <% if request.status == "pending" %>
+                <div class="notifications-item">
+                  <div class="notifications-content">
+                    <p>Event: <%= request.event.title %> | Requester: <%= request.user.username %></p>
+                  </div>
+                  <div class="notifications-actions">
+                    <%= link_to accept_path(request), data: { turbo_method: :patch } do %>
+                      <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i>
+                    <% end %>
+                    <%= link_to reject_path(request), data: { turbo_method: :patch } do %>
+                      <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+
+           <% if @sent_requests %>
+             <% @sent_requests.each do |request| %>
+                <div class="notifications-item">
+                  <div class="notifications-content">
+                    <p>Event: <%= request.event.title %> | Status: <%= request.status %></p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+        </div>
+
+
       </div>
     </div>
-    </div>
+    <% end %>
 
     <div class="section" data-controller="toggle">
       <h4 data-action="click->toggle#display">My Messages</h4>

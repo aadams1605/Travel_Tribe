@@ -11,13 +11,17 @@
           <h2 class="listing"><%= @event.start_date %> to <%= @event.end_date %></h2>
           <h2 class="listing"> <i class="fa-sharp fa-solid fa-location-dot" style="color: #ffffff;"></i> <%= @event.location %></h2>
           <div class="icon-right"><h2 class="listing"> <i class="fa-solid fa-user" style="color: #ffffff;"></i> <%= @event.capacity %></h2></div>
+          <h2 class="listing">Hosted by: <%= @event.user.username %></h2>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="container-join-event">
-  <%= button_to "Join Event" , event_requests_path(@event), class: "button" %>
+  <% if current_user != @event.user %>
+    <%= button_to "Join Event" , event_requests_path(@event), class: "button" %>
+  <% end %>
 
   <div class="event-links">
     <div class="chat-button-container link">
