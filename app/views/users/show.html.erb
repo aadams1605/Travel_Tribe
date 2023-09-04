@@ -1,8 +1,8 @@
 <div class="container-event-show">
   <div class="card-grid">
-      <% if @user.photo.key %>
-        <%= cl_image_tag @user.photo.key %>
-      <% end %>
+    <% if @user.photo.key %>
+      <%= cl_image_tag @user.photo.key %>
+    <% end %>
     <div class="event-descriptions">
       <div class="description-column">
         <div class="row">
@@ -14,7 +14,17 @@
       </div>
     </div>
   </div>
-  <div class="chat-button-container">
-    <button>Chat with <%= @user.username %></button>
-  </div>
+
+<% if @existing_chatroom %>
+  <%= link_to "Go to Chat", chatroom_path(@existing_chatroom), class: "chat-button-container" %>
+<% else %>
+  <%= simple_form_for Chatroom.new, url: chatrooms_path, method: :post do |form| %>
+    <%= form.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+    <div class="chat-button-container">
+      <%= form.button :submit, "Chat with #{@user.username}",
+                      class: "button",
+                      data: { disable_with: 'Creating chatroom...' } %>
+    </div>
+  <% end %>
+<% end %>
 </div>

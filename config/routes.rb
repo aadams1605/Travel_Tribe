@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: "events#index"
   resources :events do
     resources :requests, only: :create
-    resources :chatrooms, only: :show do
+  end
+    resources :chatrooms, only: [:show, :create] do
       resources :messages, only: [:new, :create]
-    end
   end
 
   get "accounts/show", to: "accounts#show", as: "dashboard"
