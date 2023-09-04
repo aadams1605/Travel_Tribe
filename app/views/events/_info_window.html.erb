@@ -1,6 +1,6 @@
 
   <h2><%= link_to event.title, event_path(event) %></h2>
-  <p><%= event.location %></p>
+  <p><i class="fa-sharp fa-solid fa-location-dot" style="color: #0b7176;"></i> <%= event.location %></p>
 
 <% if event.photo.key %>
   <%= cl_image_tag event.photo.key, crop: :fill, class:"popup-image" %>
