@@ -15,8 +15,9 @@ class RequestsController < ApplicationController
       )
       redirect_to event_url(@event), notice: "Request to join event was sent!"
     else
-      render :new, status: :unprocessable_entity, alert: "Request was unsuccessful."
+      redirect_to event_path(@event)
     end
+      flash[:notice] = @request.errors.full_messages.first unless @request.valid?
   end
 
   def accept
