@@ -30,6 +30,9 @@
 
   <div class="event-links">
     <div class="chat-button-container link">
+      <%= link_to "Event Chat", event_chatroom_path(@chatroom, template: "chatrooms/show") %>
+    </div>
+    <div class="chat-button-container link">
       <%= link_to "Edit Event", edit_event_path(@event) if @event.user == current_user %>
     </div>
     <div class="chat-button-container link">
@@ -40,17 +43,5 @@
   </div>
 </div>
 
-<%= render "map" %>
 
-<div class="chatroom">
-  <h2>Event Chat</h2>
-  <div class="chatroom-container"
-    data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-  <div class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/messages", message: message %>
-  <% end %>
-  </div>
-  <%= render "messages/new", chatroom: @chatroom %>
-</div>
+<%= render "map" %>
