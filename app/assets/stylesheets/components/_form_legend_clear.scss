@@ -29,9 +29,10 @@ legend ~ div.form-check:first-of-type {
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;
+      margin-bottom: 5%;
 
       &:hover {
-        background-color: white;
+        background-color: #0a393c;
       }
    }
 
@@ -91,7 +92,7 @@ legend ~ div.form-check:first-of-type {
         transition: background-color 0.2s ease-in-out;
 
         &:hover {
-          background-color: white;
+          background-color: #0a393c;
         }
       }
     }
