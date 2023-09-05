@@ -16,63 +16,63 @@
     </div>
   </div>
   <br>
-          <h2 class="avatar-text"> <%= link_to image_tag(url_for(@event.user.photo), id: "avatar-small"), user_path(@event.user), style: "object-fit: cover" %> <%= @event.user.username  %> posted this event</h2>
+  <h2 class="avatar-text"> <%= link_to image_tag(url_for(@event.user.photo), id: "avatar-small"), user_path(@event.user), style: "object-fit: cover" %> <%= @event.user.username  %> posted this event</h2>
 </div>
 
 <div class="container-join-event">
-  <% if current_user != @event.user %>
-    <%= button_to "Join Event", event_requests_path(@event), class: "button" %>
+  <% if @event.attendees.count < @event.capacity && current_user != @event.user %>
+      <%= button_to "Join Event" , event_requests_path(@event), class: "button" %>
+  <% elsif @event.attendees.count >= @event.capacity && current_user != @event.user %>
+      <span>The event is now full.</span>
   <% end %>
-</div>
-  <div class="container-join-event">
-    <% if @event.attendees.count < @event.capacity && current_user != @event.user %>
-        <%= button_to "Join Event" , event_requests_path(@event), class: "button" %>
-    <% elsif @event.attendees.count >= @event.capacity && current_user != @event.user %>
-        <span>The event is now full.</span>
+
+  <div class="chat-button-container link">
+
+    <% if @event.user == current_user %>
+      <%= button_to edit_event_path(@event), method: :get, class: "button" do %>
+        <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit
+      <% end %>
     <% end %>
 
-    <div class="chat-button-container link">
-
-      <% if @event.user == current_user %>
-        <%= button_to edit_event_path(@event), method: :get, class: "button" do %>
-        <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit
-        <% end %>
-
-      <% if @attendees.include?(current_user) %>
+    <% if @attendees.include?(current_user) %>
       <%= link_to "Event Chat", chatroom_path(@chatroom, template: "chatrooms/show") %>
+    <% end %>
 
-      <% end %>
-      <% if @event.user == current_user %>
-        <%= button_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}, class: "button" do %>
+    <% if @event.user == current_user %>
+      <%= button_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}, class: "button" do %>
         <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #ffffff;"></i> Delete
-        <% end %>
       <% end %>
-    </div>
+    <% end %>
+  </div>
+</div>
 
 <br>
+
 <div class="container">
   <div class="map">
     <%= render "map" %>
   </div>
 </div>
+
 <br>
 
 <div class="container-join-event">
   <div class="event-links">
     <div class="chat-button-container link">
       <% if @attendees.include?(current_user) %>
-      <%= button_to "Event Chat", event_chatroom_path(@chatroom, template: "chatrooms/show"), method: :get, class: "button" %>
+        <%= button_to "Event Chat", event_chatroom_path(@chatroom, template: "chatrooms/show"), method: :get, class: "button" %>
       <% end %>
     </div>
   </div>
 </div>
 
 <div class="row">
-<p>Other attendants:</p>
+  <p>Other attendants:</p>
   <div class="avatar-container">
     <% @attendees.each do |attendee| %>
       <%= link_to image_tag(url_for(attendee.photo), class: "avatar-attendee"), user_path(attendee), style: "object-fit: cover" %>
     <% end %>
   </div>
 </div>
+
 <br>
