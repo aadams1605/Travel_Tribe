@@ -47,8 +47,6 @@
       <h4 data-action="click->toggle#display">Pending Requests</h4>
       <div class="subsection d-none" data-toggle-target="togglableElement">
         <div class="notifications">
-
-
           <% if @received_requests %>
             <% @received_requests.each do |request| %>
               <% if request.status == "pending" %>
@@ -57,8 +55,12 @@
                     <p>Event: <%= request.event.title %> | Requester: <%= request.user.username %></p>
                   </div>
                   <div class="notifications-actions">
-                    <%= link_to accept_path(request), data: { turbo_method: :patch } do %>
-                      <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i>
+                    <% if request.event.is_full? %>
+                      <span>The event is now full.</span>
+                    <% else %>
+                      <%= link_to accept_path(request), data: { turbo_method: :patch } do %>
+                        <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i>
+                      <% end %>
                     <% end %>
                     <%= link_to reject_path(request), data: { turbo_method: :patch } do %>
                       <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
