@@ -8,7 +8,11 @@
   <% end %>
   <div class="notification-content">
     <p><small><%= notification.created_at.strftime("%e %h %H:%M") %></small></p>
-    <p><%= link_to notification.content, dashboard_path(notification) %></p>
+     <% if notification.notifiable.is_a?(Message) %>
+      <p><%= link_to notification.content, chatroom_path(notification.notifiable.chatroom) %></p>
+     <% elsif notification.notifiable.is_a?(Event) %>
+      <p><%= link_to notification.content, event_path(notification.notifiable) %></p>
+    <% end %>
   </div>
   <div class="notification-actions">
     <a href="#"><i class="fa-solid fa-envelope-open-text fa-2xl"></i></a>
