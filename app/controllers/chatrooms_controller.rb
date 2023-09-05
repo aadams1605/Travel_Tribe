@@ -1,4 +1,11 @@
 class ChatroomsController < ApplicationController
+  def index
+    @direct_chatrooms = current_user.chatrooms
+    @owned_events = current_user.events
+    @attended_events = Event.joins(:requests).where(requests: { status: "accepted", user: current_user })
+    @all_chatrooms = (@direct_chatrooms + @owned_events.map(&:chatroom) + @attended_events.map(&:chatroom)).uniq
+  end
+
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new(chatroom: @chatroom)
