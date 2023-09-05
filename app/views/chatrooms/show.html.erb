@@ -1,5 +1,9 @@
 <div class="chatroom">
-  <h2>Chat</h2>
+  <% if @chatroom.event.present? %>
+    <h2><%= @chatroom.event.title %></h2>
+  <% else %>
+    <h2><%= @chatroom.participants.where.not(id: current_user.id).first.username %></h2>
+  <% end %>
   <div class="chatroom-container"
     data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
