@@ -5,9 +5,9 @@ class AccountsController < ApplicationController
   def show
     @created_events = @user.events.order(created_at: :desc)
     @sent_requests = @user.requests.order(created_at: :desc)
-    @received_requests = Request.where(event_id: @created_events.pluck(:id))
+    @received_requests = Request.where(event_id: @created_events.pluck(:id), status: "pending")
 
-    @events = Event.where(id: @sent_requests.pluck(:event_id).uniq)
+    @attending_events = Event.where(id: @sent_requests.pluck(:event_id).uniq)
   end
 
   private
