@@ -34,9 +34,15 @@
       <% end %>
     <% end %>
 
-    <% if @attendees.include?(current_user) %>
-      <%= link_to "Event Chat", chatroom_path(@chatroom, template: "chatrooms/show") %>
-    <% end %>
+    <div class="container-join-event">
+  <div class="event-links">
+    <div class="chat-button-container link">
+      <% if @attendees.include?(current_user) || @event.user == current_user %>
+        <%= button_to "Event Chat", chatroom_path(@chatroom, template: "chatrooms/show"), method: :get, class: "button" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
     <% if @event.user == current_user %>
       <%= button_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}, class: "button" do %>
@@ -56,18 +62,8 @@
 
 <br>
 
-<div class="container-join-event">
-  <div class="event-links">
-    <div class="chat-button-container link">
-      <% if @attendees.include?(current_user) %>
-        <%= button_to "Event Chat", chatroom_path(@chatroom, template: "chatrooms/show"), method: :get, class: "button" %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
 <div class="row">
-  <p>Other attendants:</p>
+  <p>Attendees:</p>
   <div class="avatar-container">
     <% @attendees.each do |attendee| %>
       <%= link_to image_tag(url_for(attendee.photo), class: "avatar-attendee"), user_path(attendee), style: "object-fit: cover" %>

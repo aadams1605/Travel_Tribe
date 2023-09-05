@@ -1,3 +1,80 @@
+.container-accounts {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.attending-section, .hosting-section {
+  margin-bottom: 30px;
+  border-radius: 5px;
+  background-color: #0B8D93;
+  color: white;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.account-event-titles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.attending-accepted, .hosting-events {
+  background-color: #ee9c22;
+  border-radius: 5px;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: left;
+}
+
+.attending-pending {
+  background-color: #ee9c22;
+  border-radius: 5px;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: left;
+  opacity: 0.8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+    padding: 5px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .section {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -40,11 +117,3 @@
 }
 
 /* Styling for links */
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}

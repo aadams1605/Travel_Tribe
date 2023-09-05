@@ -1,104 +1,46 @@
-  <div class="container">
-      <div class="section" data-controller="toggle">
-      <h4 data-action="click->toggle#display">Attending Events</h4>
-      <div class="subsection d-none" data-toggle-target="togglableElement">
-      <div class="subsection">
-        <h5>Upcoming Events</h5>
-        <% @events.each do |event| %>
-          <% if event.start_date >= Date.today && event.requests.exists?(status: "accepted") %>
-            <p><%= link_to event.title, event_url(event) %></p>
-          <% end %>
-        <% end %>
+  <div class="container-accounts">
+    <div class="attending-section">
+      <div class="account-event-titles">
+        <h4>Attending</h4>
+        <h6>View Past Events</h6>
       </div>
-      <div class="subsection">
-        <h5>Pending Attending requests</h5>
-        <% @events.each do |event| %>
-          <% if event.start_date >= Date.today && event.requests.exists?(status: "pending")%>
-            <p><%= link_to event.title, event_url(event) %></p>
-          <% end %>
+      <% @attending_events.each do |event| %>
+        <%# Attending events with status: accepted  %>
+        <% if event.start_date >= Date.today && event.requests.exists?(status: "accepted") %>
+          <div class="attending-accepted"><%= link_to event.title, event_url(event) %></div>
         <% end %>
-      </div>
-    </div>
+        <%# Attending events with status: accepted  %>
+        <% if event.start_date >= Date.today && event.requests.exists?(status: "pending") %>
+          <div class="attending-pending"><%= link_to event.title, event_url(event) %> <p>Pending Approval</p> </div>
+        <% end %>
+      <% end %>
     </div>
 
-    <div class="section" data-controller="toggle">
-      <h4 data-action="click->toggle#display">My Events</h4>
-      <div class="subsection d-none" data-toggle-target="togglableElement">
-      <div class="subsection">
-        <h5>Upcoming Events</h5>
-        <% current_user.events.each do |event| %>
-          <% if event.start_date >= Date.today %>
-            <p><%= link_to event.title, event_url(event) %></p>
-          <% end %>
-        <% end %>
+    <div class="hosting-section">
+      <div class="account-event-titles">
+        <h4>Hosting</h4>
+        <h6>View Past Events</h6>
       </div>
-      <div class="subsection">
-        <h5>Past Events</h5>
-        <% current_user.events.each do |event| %>
-          <% if event.start_date < Date.today %>
-            <p><%= link_to event.title, event_url(event) %></p>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    </div>
-
-    <div class="section" data-controller="toggle">
-      <h4 data-action="click->toggle#display">Pending Requests</h4>
-      <div class="subsection d-none" data-toggle-target="togglableElement">
-        <div class="notifications">
+       <% @created_events.each do |event| %>
+        <div class="hosting-events"><%= link_to event.title, event_url(event) %>
+        <%# All the requests for each event %>
           <% if @received_requests %>
-            <% @received_requests.each do |request| %>
-              <% if request.status == "pending" %>
-                <div class="notifications-item">
-                  <div class="notifications-content">
-                    <p>Event: <%= request.event.title %> | Requester: <%= request.user.username %></p>
-                  </div>
-                  <div class="notifications-actions">
-                    <% if request.event.is_full? %>
-                      <span>The event is now full.</span>
-                    <% else %>
-                      <%= link_to accept_path(request), data: { turbo_method: :patch } do %>
-                        <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i>
-                      <% end %>
-                    <% end %>
-                    <%= link_to reject_path(request), data: { turbo_method: :patch } do %>
-                      <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
-                    <% end %>
-                  </div>
-                </div>
+            <% @received_requests.where(event_id: event).each do |request| %>
+            <div class="hosting-events-request">
+              <%= request.user.username %> has requested to join the event.
+              <%# Accept request link  %>
+              <%= link_to accept_path(request), data: { turbo_method: :patch } do %>
+                <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i>
               <% end %>
-            <% end %>
-
-           <% if @sent_requests %>
-             <% @sent_requests.each do |request| %>
-                <div class="notifications-item">
-                  <div class="notifications-content">
-                    <p>Event: <%= request.event.title %> | Status: <%= request.status %></p>
-                  </div>
-                </div>
+              <%# Reject request link  %>
+              <%= link_to reject_path(request), data: { turbo_method: :patch } do %>
+                <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
               <% end %>
+            </div>
             <% end %>
+          <% end %>
         </div>
 
-
-      </div>
-    </div>
-    <% end %>
-
-    <div class="section" data-controller="toggle">
-      <h4 data-action="click->toggle#display">My Messages</h4>
-      <div data-toggle-target="togglableElement" class="subsection d-none"></div>
-    </div>
-
-    <div class="section" data-controller="toggle">
-      <h4 data-action="click->toggle#display">Customer Support</h4>
-      <div data-toggle-target="togglableElement" class="subsection d-none">
-      <h4>Welcome to TravelTribe's Customer Support. We are here to assist you and ensure that your experience with our services is smooth and enjoyable. Our dedicated support team is ready to address your questions, concerns, and provide solutions to your issues.
-        Contact Information:
-        Phone Support: If you prefer speaking with one of our support representatives, you can reach us at +44 20 7123 4567. Our support hours are 09:00 to 17:00 daily.
-        Email Support: For non-urgent inquiries or if you need assistance outside of our operating hours, you can email us at support@traveltribe.com . We strive to respond within 72h.
-        </h4>
-      </div>
+      <% end %>
     </div>
   </div>

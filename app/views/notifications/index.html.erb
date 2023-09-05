@@ -1,4 +1,5 @@
 <h2>Notifications</h2>
+
 <% current_user.notifications.order(created_at: :desc).limit(20).each do |notification| %>
   <div class="notification">
     <% if notification.user.photo.attached? %>
@@ -16,5 +17,20 @@
     <div class="notification-actions">
       <a href="#"><i class="fa-solid fa-envelope-open-text fa-2xl"></i></a>
     </div>
+
+<% current_user.notifications.each do |notification| %>
+<div class="notification">
+  <% if notification.user.photo.attached? %>
+    <%= link_to image_tag( url_for(notification.user.photo),class: "avatar-small") %>
+  <% else %>
+    <%= link_to image_tag("default_avatar.jpg", class: "avatar-small" ) %>
+  <% end %>
+  <div class="notification-content">
+    <p><small><%= notification.created_at.strftime("%e %h %H:%M") %></small></p>
+     <% if notification.notifiable.is_a?(Message) %>
+      <p><%= link_to notification.content, chatroom_path(notification.notifiable.chatroom) %></p>
+     <% elsif notification.notifiable.is_a?(Event) %>
+      <p><%= link_to notification.content, event_path(notification.notifiable) %></p>
+    <% end %>
   </div>
 <% end %>
