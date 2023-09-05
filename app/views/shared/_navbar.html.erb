@@ -12,10 +12,15 @@
               <%= link_to "Events", events_path, class: "nav-link" %>
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu", style: "object-fit: cover", id: "navbarDropdown" %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu", style: "object-fit: cover", id: "navbarDropdown" %>
               <% else %>
                 <%= image_tag "default_avatar.jpg", class: "avatar", alt: "dropdown menu", style: "object-fit: cover", id: "navbarDropdown" %>
               <% end %>
+
+              <% if current_user.notifications.where(read: false).present? %>
+                <i class="fa-solid fa-circle notification-dot" style="color: #EE9C22;"></i>
+              <% end %>
+
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "My Profile", dashboard_path, class: "dropdown-item" %>
