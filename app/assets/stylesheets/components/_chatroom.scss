@@ -1,88 +1,74 @@
-/* chatroom.scss */
-
-/* Container for the entire chatroom */
+/* Chatroom container */
 .chatroom {
   width: 100%;
-  height: 80%; /* Adjust the height as needed */
-  display: flex;
-  flex-direction: column;
+  max-width: 400px; /* Adjust the width as needed */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Header containing the chatroom title */
+/* Chat header */
 .chatroom h2 {
-  background-color: #097176; /* WhatsApp green */
-  color: #ffffff;
-  padding: 15px;
+  background-color: #075e54; /* WhatsApp green */
+  color: #fff;
   text-align: center;
-  font-size: 1.5rem;
+  padding: 10px;
   margin: 0;
 }
 
-/* Styles for the message input area (you can customize further) */
-.messages-new {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #f5f5f5; /* Light gray background */
-  border-top: 1px solid #ccc;
+/* Chatroom container */
+.chatroom-container {
+  overflow-y: auto;
+  max-height: 400px; /* Adjust the height as needed */
+  margin-top: 10px;
 }
 
-.messages-new input[type="text"] {
+/* Chat messages */
+.messages {
+  padding: 10px;
+}
+
+/* Individual chat message */
+.message {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+/* User's own messages */
+.message.sent {
+  background-color: #dcf8c6; /* WhatsApp light green for sent messages */
+  align-self: flex-end;
+}
+
+/* New message input */
+.new-message {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+}
+
+/* New message input field */
+.new-message input[type="text"] {
   flex: 1;
   padding: 10px;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
+  border-radius: 25px;
+  margin-right: 10px;
   outline: none;
 }
 
-.messages-new button {
-  background-color: #25d366; /* WhatsApp green */
-  color: #ffffff;
+/* Send button */
+.new-message button {
+  background-color: #075e54; /* WhatsApp green */
+  color: #fff;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-left: 10px;
+  padding: 10px;
   cursor: pointer;
-}
-
-/* Container for chat messages */
-.chatroom-container {
-  flex: 1;
-  overflow-y: auto;
-  padding: 10px;
-}
-
-/* Individual chat message styles */
-.message {
-  max-width: 60%; /* Adjust the maximum width as needed */
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  clear: both;
-}
-
-/* Styles for sender's messages */
-.message-sender {
-  background-color: #25d366; /* WhatsApp green */
-  color: #ffffff;
-  float: right;
-}
-
-/* Styles for receiver's messages */
-.message-receiver {
-  background-color: #e1e1e1; /* Light gray background for received messages */
-  color: #000000;
-  float: left;
-}
-
-/* Add any additional styles as needed */
-
-/* Media query for mobile responsiveness (adjust as needed) */
-@media (max-width: 768px) {
-  .message {
-    max-width: 70%; /* Adjust the maximum width for mobile devices */
-  }
 }
