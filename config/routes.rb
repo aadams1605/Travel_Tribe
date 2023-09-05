@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:new, :create]
   end
 
+  resources :requests, only: :destroy
   get "accounts/show", to: "accounts#show", as: "dashboard"
   patch "/requests/:id/accept", to: "requests#accept", as: "accept"
   patch "/requests/:id/reject", to: "requests#reject", as: "reject"

@@ -46,6 +46,12 @@ class RequestsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def destroy
+    @request = Request.find(params[:id])
+    @request.destroy
+    redirect_to event_path(@request.event)
+  end
+
   def set_event
     @event = Event.find(params[:event_id])
   end
