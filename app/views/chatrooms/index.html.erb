@@ -1,0 +1,10 @@
+<h1>All Chatrooms</h1>
+<ul>
+  <% @all_chatrooms.each do |chatroom| %>
+    <% if chatroom.event.present? %>
+      <h2><%= link_to chatroom.event.title, chatroom_path(chatroom) %></h2>
+    <% else %>
+      <h2><%= link_to chatroom.participants.where.not(id: current_user.id).first.username, chatroom_path(chatroom) %></h2>
+    <% end %>
+  <% end %>
+</ul>

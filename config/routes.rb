@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :events do
     resources :requests, only: :create
   end
-    resources :chatrooms, only: [:show, :create] do
-      resources :messages, only: [:new, :create]
+  resources :chatrooms, only: [:show, :create, :index] do
+    resources :messages, only: [:new, :create]
   end
 
   get "accounts/show", to: "accounts#show", as: "dashboard"
