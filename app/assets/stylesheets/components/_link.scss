@@ -25,3 +25,10 @@
     filter: brightness(1.2); /* Adjust the brightness on hover, change as needed */
   }
 }
+
+a {
+  color: white;
+  &:hover {
+    color: rgb(190, 190, 190);
+  }
+}
