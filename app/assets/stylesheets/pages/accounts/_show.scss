@@ -5,34 +5,52 @@
   margin-top: 40px;
 }
 
-.attending-section {
+.attending-section, .hosting-section {
   margin-bottom: 30px;
   border-radius: 5px;
   background-color: #0B8D93;
   color: white;
-  padding: 10px 0px 10px 0px;
+  padding: 20px 0px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.hosting-section {
-  border-radius: 5px;
-  background-color: #0B8D93;
-  color: white;
-  padding: 10px 0px 10px 0px;
+.account-event-titles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
 }
 
-.hosting-events {
-  background-color: #72b4b8;
+.attending-accepted, .hosting-events {
+  background-color: #ee9c22;
   border-radius: 5px;
-  width: 80%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: left;
 }
 
-.attending-accepted, .attending-pending {
-  background-color: #72b4b8;
+.attending-pending {
+  background-color: #ee9c22;
   border-radius: 5px;
-  width: 50%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: left;
+  opacity: 0.8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+    padding: 5px;
+  }
 }
 
 

@@ -1,7 +1,9 @@
   <div class="container-accounts">
     <div class="attending-section">
-      <h4>Attending</h4>
-      <h4>View Past Events</h4>
+      <div class="account-event-titles">
+        <h4>Attending</h4>
+        <h6>View Past Events</h6>
+      </div>
       <% @attending_events.each do |event| %>
         <%# Attending events with status: accepted  %>
         <% if event.start_date >= Date.today && event.requests.exists?(status: "accepted") %>
@@ -9,16 +11,17 @@
         <% end %>
         <%# Attending events with status: accepted  %>
         <% if event.start_date >= Date.today && event.requests.exists?(status: "pending") %>
-          <div class="attending-pending"><%= link_to event.title, event_url(event) %></div>
+          <div class="attending-pending"><%= link_to event.title, event_url(event) %> <p>Pending Approval</p> </div>
         <% end %>
       <% end %>
     </div>
 
     <div class="hosting-section">
-      <h4>Hosting</h4>
-      <h4>View Past Events</h4>
-      <% @created_events.each do |event| %>
-
+      <div class="account-event-titles">
+        <h4>Hosting</h4>
+        <h6>View Past Events</h6>
+      </div>
+       <% @created_events.each do |event| %>
         <div class="hosting-events"><%= link_to event.title, event_url(event) %>
         <%# All the requests for each event %>
           <% if @received_requests %>
