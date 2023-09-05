@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :chat_participants
   has_many :messages, dependent: :destroy
   has_many :requests, dependent: :destroy
-  validates :requests, uniqueness: {scope: [:user_id, :event_id]}
+  # validates :requests, uniqueness: {scope: [:user_id, :event_id]}
   has_many :notifications, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
   validates :username, uniqueness: true
