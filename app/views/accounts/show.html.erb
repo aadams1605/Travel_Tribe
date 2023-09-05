@@ -1,4 +1,4 @@
-  <div class="container-accounts">
+  <div class="container-accounts" data-controller="toggle">
     <div class="attending-section">
       <div class="account-event-titles">
         <h4>Attending</h4>
@@ -11,7 +11,7 @@
         <% end %>
         <%# Attending events with status: accepted  %>
         <% if event.start_date >= Date.today && event.requests.exists?(status: "pending") %>
-          <div class="attending-pending"><%= link_to event.title, event_url(event) %> <p>Pending Approval</p> </div>
+          <div class="attending-pending"><%= link_to event.title, event_url(event) %> <h6><em>Pending</em></h6> </div>
         <% end %>
       <% end %>
     </div>
@@ -22,23 +22,30 @@
         <h6>View Past Events</h6>
       </div>
        <% @created_events.each do |event| %>
-        <div class="hosting-events"><%= link_to event.title, event_url(event) %>
+        <div class="hosting-events">
+          <div class="hosting-events-title">
+            <%= link_to event.title, event_url(event) %>
+            <h6 data-action="click->toggle#show">Manage Requests <i class="fa-solid fa-circle-chevron-down"></i></h6>
+          </div>
         <%# All the requests for each event %>
-          <% if @received_requests %>
-            <% @received_requests.where(event_id: event).each do |request| %>
-            <div class="hosting-events-request">
-              <%= request.user.username %> has requested to join the event.
-              <%# Accept request link  %>
-              <%= link_to accept_path(request), data: { turbo_method: :patch } do %>
-                <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i>
+          <div class="d-none" data-toggle-target="event" >
+            <% if @received_requests %>
+              <% @received_requests.where(event_id: event).each do |request| %>
+              <div class="hosting-events-request">
+                <%= request.user.username %> has requested to join the event.
+                <%# Accept request link  %>
+                <%= link_to accept_path(request), data: { turbo_method: :patch } do %>
+                  <i class="fa-sharp fa-regular fa-circle-check" style="color: #00bd16;"></i>
+                <% end %>
+                <%# Reject request link  %>
+                <%= link_to reject_path(request), data: { turbo_method: :patch } do %>
+                  <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
+                <% end %>
+              </div>
               <% end %>
-              <%# Reject request link  %>
-              <%= link_to reject_path(request), data: { turbo_method: :patch } do %>
-                <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #f50000;"></i>
-              <% end %>
-            </div>
             <% end %>
-          <% end %>
+          </div>
+
         </div>
 
       <% end %>
