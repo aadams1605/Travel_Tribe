@@ -13,6 +13,11 @@ class Event < ApplicationRecord
     User.joins(:requests).where(requests: { event: self, status: "accepted" })
   end
 
+  def attendees_including_creator
+    users = attendees + User.joins(:events).where(events: {id: id } )
+    User.where(id: users.pluck(:id))
+  end
+
   def is_full?
     self.attendees.count >= self.capacity
   end
