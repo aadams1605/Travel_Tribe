@@ -1,4 +1,4 @@
-  <div class="container-accounts">
+  <div class="container">
     <div class="attending-section">
       <div class="account-event-titles">
         <h4>Attending</h4>
@@ -23,13 +23,13 @@
       </div>
        <% @created_events.each do |event| %>
         <div class="hosting-events" data-controller="toggle">
-          <div class="hosting-events-title">
+          <div class="hosting-events-title <%= "hosting-events-title-col" if @received_requests.where(event_id: event).empty? %>">
             <%= link_to event.title, event_url(event) %>
-            <% if @received_requests.present? %>
+            <% if @received_requests.where(event_id: event).present? %>
               <h6 data-action="click->toggle#display">Manage Requests <i class="fa-solid fa-circle-chevron-down"></i></h6>
             <%# Condition displaying h6 on whether or not there are any received requests  %>
             <% else %>
-              <span>You don't have any pending requests.</span>
+              <span id="no-requests">You don't have any pending requests.</span>
             <% end %>
           </div>
         <%# All the requests for each event %>
