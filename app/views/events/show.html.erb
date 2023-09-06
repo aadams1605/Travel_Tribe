@@ -24,6 +24,8 @@
     <%= button_to "Leave Event", request_path(Request.find_by(event:@event, user:current_user)), method: :delete, class: "button" %>
   <% elsif Request.find_by(event:@event, user:current_user, status: "pending") %>
     <span>Your request is pending.</span>
+  <% elsif Request.find_by(event:@event, user:current_user, status: "rejected") %>
+    <span>Your request has been rejected.</span>
   <% elsif @event.attendees.count < @event.capacity && current_user != @event.user %>
     <%= button_to "Join Event" , event_requests_path(@event), class: "button" %>
   <% elsif @event.attendees.count >= @event.capacity && current_user != @event.user %>
