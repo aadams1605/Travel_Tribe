@@ -14,6 +14,8 @@
       <p><small><%= notification.created_at.strftime("%e %h %H:%M") %></small></p>
       <% if notification.notifiable.is_a?(Message) %>
         <p><%= link_to notification.content, chatroom_path(notification.notifiable.chatroom) %></p>
+      <% elsif notification.notifiable.is_a?(User) %>
+        <p><%= notification.content %></p>
       <% elsif notification.notifiable.is_a?(Event) %>
         <p><%= link_to notification.content, event_path(notification.notifiable) %></p>
       <% end %>

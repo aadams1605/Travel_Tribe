@@ -61,7 +61,16 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @attendees = @event.attendees.to_a
     @event.destroy
+    @attendees.each do |attendee|
+      Notification.create(
+        content: "The event #{@event.title} has been cancelled by #{@event.user.username}",
+        user: attendee,
+        notifiable_type: attendee.class.name,
+        notifiable_id: attendee.id
+      )
+    end
     redirect_to root_path, alert: "Event was successfully deleted."
   end
 
