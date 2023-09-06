@@ -1,10 +1,22 @@
-<h1>All Chatrooms</h1>
+<h1>Your Chats</h1>
 <ul>
   <% @all_chatrooms.each do |chatroom| %>
     <% if chatroom.event.present? %>
       <h2><%= link_to chatroom.event.title, chatroom_path(chatroom) %></h2>
+        <% if chatroom.event.photo.key %>
+          <%= cl_image_tag chatroom.event.photo.key, crop: :fill, class:"events-image" %>
+        <% else %>
+          <%= image_tag "TT_Logo.png" %>
+        <% end %>
     <% else %>
-      <h2><%= link_to chatroom.participants.where.not(id: current_user.id).first.username, chatroom_path(chatroom) %></h2>
+      <% chatroom.participants.where.not(id: current_user.id).each do |participant| %>
+        <h2><%= link_to chatroom.participants.first.username, chatroom_path(chatroom) %></h2>
+          <% if participant.photo.key %>
+            <%= cl_image_tag participant.photo.key, crop: :fill, class:"events-image" %>
+          <% else %>
+           <%= image_tag "TT_Logo.png" %>
+          <% end %>
+      <% end %>
     <% end %>
   <% end %>
 </ul>
