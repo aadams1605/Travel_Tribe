@@ -10,7 +10,7 @@
         <% end %>
     <% else %>
       <% chatroom.participants.where.not(id: current_user.id).each do |participant| %>
-        <h2><%= link_to chatroom.participants.first.username, chatroom_path(chatroom) %></h2>
+        <h2><%= link_to participant.username, chatroom_path(chatroom) %></h2>
           <% if participant.photo.key %>
             <%= cl_image_tag participant.photo.key, crop: :fill, class:"events-image" %>
           <% else %>
