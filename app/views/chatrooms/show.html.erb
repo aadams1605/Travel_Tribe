@@ -1,8 +1,8 @@
 <div class="container chatroom">
   <% if @chatroom.event.present? %>
-    <h2><%= @chatroom.event.title %></h2>
+    <h2><%= link_to @chatroom.event.title, event_path(@chatroom.event), class:"chat-link" %></h2>
   <% else %>
-    <h2>Chat with <%= @chatroom.participants.where.not(id: current_user.id).first.username %></h2>
+  <h2>Chat with <%= @chatroom.participants.where.not(id: current_user.id).first.username %></h2>
   <% end %>
   <div class="chatroom-container"
     data-controller="chatroom-subscription"
