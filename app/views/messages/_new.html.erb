@@ -2,7 +2,7 @@
   html: { data: { chatroom_subscription_target: "form", action: "turbo:submit-end->chatroom-subscription#sendMessage keyup->chatroom-subscription#sendMessage" }, class: "d-flex" } do |f| %>
   <%= f.input :content,
     label: false,
-    placeholder: "Message ##{@chatroom.name}",
+    placeholder: "Write your message #{@chatroom.name}",
     wrapper_html: {class: "flex-grow-1"},
     input_html: {
       data: { chatroom_subscription_target: "messageInput"} } %>

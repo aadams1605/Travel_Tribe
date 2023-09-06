@@ -1,6 +1,6 @@
 <h2>Notifications</h2>
 
-<% current_user.notifications.order(created_at: :desc).limit(20).each do |notification| %>
+<% current_user.notifications.order(created_at: :desc).limit(40).each do |notification| %>
   <div class="notification">
     <% if notification.user.photo.attached? %>
       <%= link_to image_tag( url_for(notification.user.photo),class: "avatar") %>
