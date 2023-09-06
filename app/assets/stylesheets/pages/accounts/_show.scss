@@ -45,17 +45,22 @@
   justify-content: space-between;
   align-items: center;
 
-  p {
+  h6 {
     color: white;
-    background-color: blue;
-    border-radius: 5px;
-    padding: 5px;
+    margin: 0;
+    opacity: 1;
+    font-weight: bolder;
   }
 }
 
-
-
-
+.hosting-events-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h6 {
+    margin: 0;
+  }
+}
 
 
 

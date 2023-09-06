@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle"
 export default class extends Controller {
-  static targets = ["togglableElement", "text"]
+  static targets = ["togglableElement", "text", "event"]
   connect() {
 
   }
@@ -21,6 +21,12 @@ export default class extends Controller {
 
   display(){
     this.togglableElementTarget.classList.toggle("d-none")
+  }
+
+  show() {
+    this.eventTargets.forEach(e => {
+      e.classList.toggle("d-none")
+    });
   }
 
 }
