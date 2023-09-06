@@ -4,7 +4,6 @@
     <%= form.button type: "submit", class: "btn btn-flat" do %>
       <i class="fas fa-search"></i>
     <% end %>
-    <br>
   <% end %>
 
   <% if @no_results %>
@@ -13,7 +12,7 @@
     <% @users.each do |user|%>
       <% unless user == current_user %>
         <a href="<%= user_path(user) %>">
-            <div class="card-grid">
+            <div class="card-grid user-card-grid">
               <% if user.photo.key %>
                 <%= cl_image_tag user.photo.key, crop: :fill, class:"events-image" %>
               <% else %>
