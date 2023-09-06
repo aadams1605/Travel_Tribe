@@ -9,6 +9,8 @@ class UsersController < ApplicationController
       sql_subquery = "username ILIKE :query OR location ILIKE :query"
       @users = @users.where(sql_subquery, query: "%#{params[:query]}%")
     end
+
+    @no_results = @users.empty?
   end
 
   def show
