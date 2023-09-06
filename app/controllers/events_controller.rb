@@ -10,6 +10,8 @@ class EventsController < ApplicationController
       @events = Event.where(sql_subquery, query: "%#{params[:query]}%")
     end
 
+    @no_results = @events.empty?
+
     @markers = @events.geocoded.map do |event|
       {
         lat: event.latitude,
