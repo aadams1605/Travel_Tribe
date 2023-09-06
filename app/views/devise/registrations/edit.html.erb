@@ -1,3 +1,4 @@
+<div class="form-container">
 <h2>Edit Account</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -37,6 +38,7 @@
   </div>
 <% end %>
 
-<div>Delete your Account? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<div>Delete your Account? <%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:"btn" %></div>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, class:"btn" %>
+</div>
