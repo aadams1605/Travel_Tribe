@@ -1,10 +1,14 @@
 .notification {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  margin: 8px;
   background: white;
-  padding: 8px 16px;
+  padding: 8px 4px;
   border: 1px solid rgb(235,235,235);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  img {
+    margin-right: 12px;
+  }
 }
 
 a {
@@ -13,7 +17,6 @@ a {
 }
 .notification .notification-content {
   flex-grow: 1;
-  padding: 0 24px;
 }
 
 .notification p {
@@ -43,4 +46,22 @@ a {
 
 .notification .notification-actions a:hover {
   color: #555555;
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#notification-timestamp {
+  text-align: right;
 }

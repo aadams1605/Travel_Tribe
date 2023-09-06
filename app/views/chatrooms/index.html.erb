@@ -1,22 +1,25 @@
-<h1>Your Chats</h1>
-<ul>
+<h1 style="margin-left: 8px;">Your Chats</h1>
+
   <% @all_chatrooms.each do |chatroom| %>
+  <div class="notification">
+    <div class="message-content">
     <% if chatroom.event.present? %>
-      <h2><%= link_to chatroom.event.title, chatroom_path(chatroom) %></h2>
-        <% if chatroom.event.photo.key %>
-          <%= cl_image_tag chatroom.event.photo.key, crop: :fill, class:"events-image" %>
-        <% else %>
-          <%= image_tag "TT_Logo.png" %>
-        <% end %>
-    <% else %>
-      <% chatroom.participants.where.not(id: current_user.id).each do |participant| %>
-        <h2><%= link_to participant.username, chatroom_path(chatroom) %></h2>
-          <% if participant.photo.key %>
-            <%= cl_image_tag participant.photo.key, crop: :fill, class:"events-image" %>
+        <h2><%= link_to chatroom.event.title, chatroom_path(chatroom) %></h2>
+          <% if chatroom.event.photo.key %>
+            <%= cl_image_tag chatroom.event.photo.key, crop: :fill, class:"avatar" %>
           <% else %>
-           <%= image_tag "TT_Logo.png" %>
+            <%= image_tag "TT_Logo.png" %>
           <% end %>
+      <% else %>
+        <% chatroom.participants.where.not(id: current_user.id).each do |participant| %>
+          <h2><%= link_to participant.username, chatroom_path(chatroom) %></h2>
+            <% if participant.photo.key %>
+              <%= cl_image_tag participant.photo.key, crop: :fill, class:"avatar" %>
+            <% else %>
+            <%= image_tag "TT_Logo.png" %>
+            <% end %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+  </div>
   <% end %>
-</ul>
