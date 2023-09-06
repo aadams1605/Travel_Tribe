@@ -21,9 +21,20 @@ legend ~ div.form-check:first-of-type {
   margin-left: 5%;
   margin-bottom: 10%;
 
+    .btn {
+      padding: 4px 8px;
+      background-color: #07474B;
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      margin-bottom: 4px;
+     }
+
   a.btn {
       padding: 4px 8px;
-      background-color: #0B8D93;
+      background-color: #07474B;
       color: rgb(255, 255, 255);
       border: none;
       border-radius: 5px;
@@ -84,7 +95,7 @@ legend ~ div.form-check:first-of-type {
 
       .btn {
         padding: 8px 16px;
-        background-color: #0B8D93;
+        background-color: #07474B;
         color: white;
         border: none;
         border-radius: 5px;

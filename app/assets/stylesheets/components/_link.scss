@@ -25,3 +25,10 @@
     filter: brightness(1.2); /* Adjust the brightness on hover, change as needed */
   }
 }
+
+.devise-links {
+  color: #07474B;
+  &:hover {
+    color: #010a0b;
+  }
+}
