@@ -11,7 +11,7 @@
       <% if notification.read == false %>
         <i class="fa-solid fa-circle" style="color: #EE9C22;"></i>
       <% end %>
-      <p><small><%= notification.created_at.strftime("%e %h %H:%M") %></small></p>
+      <p id="notification-timestamp"><small><%= notification.created_at.strftime("%e %h %H:%M") %></small></p>
       <% if notification.notifiable.is_a?(Message) %>
         <p><%= link_to notification.content, chatroom_path(notification.notifiable.chatroom) %></p>
       <% elsif notification.notifiable.is_a?(User) %>
