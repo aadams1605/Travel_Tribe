@@ -1,4 +1,4 @@
-<div class="container chatroom">
+<div class="container chatroom" style="min-height: 100vh">
   <% if @chatroom.event.present? %>
     <h2><%= link_to @chatroom.event.title, event_path(@chatroom.event), class:"chat-link" %></h2>
   <% else %>
