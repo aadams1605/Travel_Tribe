@@ -1,4 +1,4 @@
-<h2>Notifications</h2>
+<h2 style="margin-left: 8px;">Notifications</h2>
 
 <% current_user.notifications.order(created_at: :desc).limit(40).each do |notification| %>
   <div class="notification">
