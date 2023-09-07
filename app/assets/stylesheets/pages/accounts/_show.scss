@@ -15,6 +15,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: Roboto;
 }
 
 .account-event-titles {
@@ -22,6 +23,7 @@
   justify-content: space-between;
   align-items: center;
   width: 90%;
+  font-family: Roboto;
 }
 
 .attending-accepted, .hosting-events {
@@ -31,6 +33,7 @@
   margin: 10px auto;
   padding: 10px;
   text-align: left;
+  font-family: Roboto;
 }
 
 .attending-pending {
@@ -44,6 +47,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: Roboto;
 
   h6 {
     color: white;
@@ -56,6 +60,7 @@
 .hosting-events-title {
   display: flex;
   justify-content: space-between;
+  font-family: Roboto;
   align-items: center;
   h6 {
     margin: 0;
