@@ -1,3 +1,13 @@
+#navbar-button {
+  padding: 4px 10px;
+  background-color: $travel-orange;
+  border-radius: 5px;
+  color:white;
+  &:hover {
+    color: #07474B;
+  }
+}
+
 .navbar-container {
   position: sticky;
   top: 0;
