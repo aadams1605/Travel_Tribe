@@ -16,18 +16,17 @@
   </div>
 
 <div class="container-join-event">
-  <% if @existing_chatroom %>
-    <%= link_to "Go to Chat", chatroom_path(@existing_chatroom), class: "button" %>
-  <% else %>
-    <%= simple_form_for Chatroom.new, url: chatrooms_path, method: :post do |form| %>
-      <%= form.input :user_id, as: :hidden, input_html: { value: @user.id } %>
-        <%= form.button :submit, "Chat with #{@user.username}",
-                        class: "button",
-                        data: { disable_with: 'Creating chatroom...' } %>
+  <% unless current_user %>
+    <% if @existing_chatroom %>
+      <%= link_to "Go to Chat", chatroom_path(@existing_chatroom), class: "button" %>
+    <% else %>
+      <%= simple_form_for Chatroom.new, url: chatrooms_path, method: :post do |form| %>
+        <%= form.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+          <%= form.button :submit, "Chat with #{@user.username}",
+                          class: "button",
+                          data: { disable_with: 'Creating chatroom...' } %>
+      <% end %>
     <% end %>
   <% end %>
   </div>
 </div>
-
-
-
