@@ -34,7 +34,7 @@ julia = User.new(username: "julia", email: "julia@gmail.com", password: "123123"
 julia.photo.attach(io: photo, filename: "julia.jpg", content_type: "image/jpg")
 julia.save!
 
-photo = URI.open("https://www.reseaucontact.com/blogue/wp-content/uploads/2017/04/5_conseils_pour_une_photo_de-profil_image_2-768x430.jpg")
+photo = URI.open("https://i.pinimg.com/564x/e4/c5/9f/e4c59fdbb41ccd0f87dc0be871d91d98.jpg")
 lucas = User.new(username: "lucas", email: "lucas@gmail.com", password: "123123", description: "I love to trekkings and football", location: "London, UK", gender:"male", age:"28")
 lucas.photo.attach(io: photo, filename: "lucas.jpg", content_type: "image/jpg")
 lucas.save!
