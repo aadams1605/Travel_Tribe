@@ -18,14 +18,16 @@
   </head>
 
   <body>
-  <%= render "shared/navbar" %>
-  <% if flash[:notice].present? %>
-    <p class="notice"><%= flash[:notice] %></p>
-  <% end %>
-  <% if flash[:alert].present? %>
-    <p class="alert"><%= flash[:alert] %></p>
-  <% end %>
-
+    <%= render "shared/navbar" %>
+    <div data-controller="flash-message">
+      <% if flash[:notice].present? %>
+        <p class="notice" data-flash-message-target="message"><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert].present? %>
+        <p class="alert" data-flash-message-target="message"><%= flash[:alert] %></p>
+      <% end %>
+    </div>
+    <div>
   <div style="min-height: 100vh">
     <%= yield %>
   </div>
