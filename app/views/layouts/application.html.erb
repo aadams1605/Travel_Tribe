@@ -28,8 +28,9 @@
       <% end %>
     </div>
     <div>
-      <%= yield %>
-    </div>
-    <%= render "shared/footer" %>
+  <div style="min-height: 100vh">
+    <%= yield %>
+  </div>
+  <%= render "shared/footer" %>
   </body>
 </html>

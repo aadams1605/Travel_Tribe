@@ -32,3 +32,19 @@
     color: #010a0b;
   }
 }
+
+.links-white {
+  color:white;
+  text-decoration: none;
+  &:hover {
+    color:#07474B;
+  }
+}
+
+
+.links-green {
+  color: #07474B;
+  &:hover {
+    color: $travel-orange;
+  }
+}
