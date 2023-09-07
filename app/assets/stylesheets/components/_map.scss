@@ -53,3 +53,15 @@
     font-size: 18pt;
   }
 }
+
+.fa-map-location-dot {
+    color: #0b7176;
+    padding: 20px;
+    background-color: orange;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 500;
+}
