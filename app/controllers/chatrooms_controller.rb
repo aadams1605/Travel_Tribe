@@ -10,6 +10,7 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new(chatroom: @chatroom)
     @event = @chatroom.event
+    @direct_chat_user = @chatroom.participants.where.not(id: current_user.id).first
   end
 
   def new
