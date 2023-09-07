@@ -46,6 +46,9 @@
 
 .nav-link {
   color: white;
+  &:hover{
+    color: $travel-orange;
+  }
 }
 
 .search-form-control {
