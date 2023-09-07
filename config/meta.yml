@@ -1,0 +1,4 @@
+meta_name: "Travel Tribe"
+meta_title: "Travel Tribe - Meet your tribe"
+meta_description: "Connect with travellers around the world and meet your fellow tribe"
+meta_image: "tt_Logo.png" # should exist in `app/assets/images/`
