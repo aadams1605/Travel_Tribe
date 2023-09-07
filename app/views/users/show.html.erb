@@ -16,7 +16,7 @@
   </div>
 
 <div class="container-join-event">
-  <% unless current_user %>
+  <% unless @user == current_user %>
     <% if @existing_chatroom %>
       <%= link_to "Go to Chat", chatroom_path(@existing_chatroom), class: "button" %>
     <% else %>
