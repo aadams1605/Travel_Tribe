@@ -7,11 +7,11 @@
       <% @attending_events.each do |event| %>
         <%# Attending events with status: accepted  %>
         <% if event.start_date >= Date.today && event.requests.exists?(status: "accepted") %>
-          <div class="attending-accepted"><%= link_to event.title, event_url(event) %></div>
+          <div class="attending-accepted"><%= link_to event.title, event_url(event), class:"links-white" %></div>
         <% end %>
         <%# Attending events with status: accepted  %>
         <% if event.start_date >= Date.today && event.requests.exists?(status: "pending") %>
-          <div class="attending-pending"><%= link_to event.title, event_url(event) %> <h6><em>Pending</em></h6> </div>
+          <div class="attending-pending"><%= link_to event.title, event_url(event), class:"links-white" %> <h6><em>Pending</em></h6> </div>
         <% end %>
       <% end %>
     </div>
@@ -24,7 +24,7 @@
        <% @created_events.each do |event| %>
         <div class="hosting-events" data-controller="toggle">
           <div class="hosting-events-title <%= "hosting-events-title-col" if @received_requests.where(event_id: event).empty? %>">
-            <%= link_to event.title, event_url(event) %>
+            <%= link_to event.title, event_url(event), class:"links-white" %>
             <% if @received_requests.where(event_id: event).present? %>
               <h6 data-action="click->toggle#display">Manage Requests <i class="fa-solid fa-circle-chevron-down"></i></h6>
             <%# Condition displaying h6 on whether or not there are any received requests  %>
