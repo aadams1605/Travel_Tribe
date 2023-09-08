@@ -9,45 +9,48 @@ Event.destroy_all
 User.destroy_all
 
 # Create Users:
+# seeds.rb
+
 photo = URI.open("https://t3.ftcdn.net/jpg/03/28/19/46/360_F_328194664_RKSHvMLgHphnD1nwQYb4QKcNeEApJmqa.jpg")
-james = User.new(username: "James", email: "james@gmail.com", password: "123123", description: "I'm from London, I like trekkings and meeting new people", location: "Barcelona, Spain", gender:"male", age:"30")
+james = User.new(username: "James", email: "james@gmail.com", password: "123123", description: "Hi, I'm James from London, and I'm a passionate trekker who loves exploring Barcelona's picturesque trails and mountains. I also enjoy meeting new people and savoring the vibrant culture of Barcelona, Spain. Let's embark on adventures and create lasting memories!", location: "Barcelona, Spain", gender:"male", age:"30")
 james.photo.attach(io: photo, filename: "James.jpg", content_type: "image/jpg")
 james.save!
 
 photo = URI.open("https://t4.ftcdn.net/jpg/02/45/56/35/360_F_245563558_XH9Pe5LJI2kr7VQuzQKAjAbz9PAyejG1.jpg")
-john = User.new(username: "John", email: "john@gmail.com", password: "123123", description: "I'm from Paris, I like museums", location: "Barcelona, Spain", gender:"male", age:"28")
+john = User.new(username: "John", email: "john@gmail.com", password: "123123", description: "Bonjour! I'm John from Paris, and I'm an art lover who thrives in Barcelona's cultural scene. Let's explore art together in this beautiful city that I now call home.", location: "Barcelona, Spain", gender:"male", age:"28")
 john.photo.attach(io: photo, filename: "John.jpg", content_type: "image/jpg")
 john.save!
 
 photo = URI.open("https://www.beandbe.com/wp-content/uploads/2016/07/pexels-photo-27411.jpg")
-maria = User.new(username: "Maria", email: "maria@gmail.com", password: "123123", description: "I'm from Berlin, I really enjoy adventures and sports", location: "Barcelona, Spain", gender:"female", age:"32")
+maria = User.new(username: "Maria", email: "maria@gmail.com", password: "123123", description: "Guten Tag! I'm Maria from Berlin, and I'm all about adrenaline-pumping adventures. Barcelona offers endless opportunities for outdoor activities. Let's embark on thrilling journeys and create memories!", location: "Barcelona, Spain", gender:"female", age:"32")
 maria.photo.attach(io: photo, filename: "Maria.jpg", content_type: "image/jpg")
 maria.save!
 
 photo = URI.open("https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg")
-paul = User.new(username: "Paul", email: "paul@gmail.com", password: "123123", description: "I'm from Italy, I like music", location: "Barcelona, Spain", gender:"male", age:"33")
+paul = User.new(username: "Paul", email: "paul@gmail.com", password: "123123", description: "Ciao! I'm Paul from Italy, and I'm passionate about music. Let's explore Barcelona's diverse music culture together and make beautiful music!", location: "Barcelona, Spain", gender:"male", age:"33")
 paul.photo.attach(io: photo, filename: "Paul.jpg", content_type: "image/jpg")
 paul.save!
 
 photo = URI.open("https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-3763188.jpg&fm=jpg")
-julia = User.new(username: "julia", email: "julia@gmail.com", password: "123123", description: "I like adventures and travelling", location: "Paris, France", gender:"female", age:"32")
+julia = User.new(username: "julia", email: "julia@gmail.com", password: "123123", description: "Hello, adventurers! I'm Julia from Paris, and I have a wanderlust spirit. Let's embark on unforgettable journeys together!", location: "Paris, France", gender:"female", age:"32")
 julia.photo.attach(io: photo, filename: "julia.jpg", content_type: "image/jpg")
 julia.save!
 
 photo = URI.open("https://i.pinimg.com/564x/e4/c5/9f/e4c59fdbb41ccd0f87dc0be871d91d98.jpg")
-lucas = User.new(username: "lucas", email: "lucas@gmail.com", password: "123123", description: "I love to trekkings and football", location: "London, UK", gender:"male", age:"28")
+lucas = User.new(username: "lucas", email: "lucas@gmail.com", password: "123123", description: "Hey there! I'm Lucas from London, and I'm a nature lover and sports enthusiast. Let's share the joy of nature and sports together!", location: "London, UK", gender:"male", age:"28")
 lucas.photo.attach(io: photo, filename: "lucas.jpg", content_type: "image/jpg")
 lucas.save!
 
 photo = URI.open("https://www.mensjournal.com/.image/t_share/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.jpg")
-steve = User.new(username: "steve", email: "steve@gmail.com", password: "123123", description: "I like sports and nature", location: "Paris, France", gender:"male", age:"28")
+steve = User.new(username: "steve", email: "steve@gmail.com", password: "123123", description: "Hi, I'm Steve from Paris, and I have a thirst for adventure and the great outdoors. Let's embark on epic adventures together and immerse ourselves in the wonders of the natural world!", location: "Paris, France", gender:"male", age:"28")
 steve.photo.attach(io: photo, filename: "steve.jpg", content_type: "image/jpg")
 steve.save!
 
 photo = URI.open("https://t4.ftcdn.net/jpg/04/44/53/99/360_F_444539901_2GSnvmTX14LELJ6edPudUsarbcytOEgj.jpg")
-emma = User.new(username: "emma", email: "emma@gmail.com", password: "123123", description: "I enjoy meeting new people and festivals", location: "London, UK", gender:"female", age:"26")
+emma = User.new(username: "emma", email: "emma@gmail.com", password: "123123", description: "Hello, festival-goers! I'm Emma from London, and I'm all about experiencing life to the fullest. Let's party together and make every moment count!", location: "London, UK", gender:"female", age:"26")
 emma.photo.attach(io: photo, filename: "emma.jpg", content_type: "image/jpg")
 emma.save!
+
 
 # Create Events:
 photo = URI.open("https://s1.abcstatics.com/media/bienestar/2020/01/29/trekking-kte--1248x698@abc.jpg")
