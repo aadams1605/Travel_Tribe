@@ -29,7 +29,7 @@
       <% end %>
     </div>
     <div>
-  <div style="<%= "min-height: 100vh" unless (params[:controller] == "chatroom" && params[:action] == "show")%>">
+  <div style="<%= "min-height: 100vh" unless (params[:controller] == "chatrooms" && params[:action] == "show")%>">
     <%= yield %>
   </div>
   <%= render "shared/footer" %>

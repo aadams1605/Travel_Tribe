@@ -39,6 +39,11 @@
   // margin-top: 10px;
   flex: 1;
   padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 80vh;
 }
 
 /* Chat messages */
@@ -49,8 +54,10 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  height: 68vh;
-  overflow: scroll
+  // height: 68vh;
+  overflow: scroll;
+  flex-grow: 1;
+  max-height: 66vh;
 }
 
 /* Individual chat message */
@@ -99,8 +106,8 @@
 
 .box-message {
   margin-top: 16px;
-  position: fixed;
-  width: 90%;
+  // position: fixed;
+  // width: 90%;
 }
 
 .chatroom small  {
