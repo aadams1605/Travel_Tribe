@@ -71,7 +71,7 @@ football.photo.attach(io: photo, filename: "football.jepg", content_type: "image
 football.save!
 
 photo = URI.open("https://soles.michelin.com/wp-content/uploads/2018/09/Rock-climbing-FB.jpg")
-climbing = Event.new(title: "Climbing", description: "Climbing for beginners", location: "Montserrat, Catalunya, Spain", start_date: DateTime.new(2023,10,10), end_date: DateTime.new(2023,10,10), capacity: 10, user: lucas)
+climbing = Event.new(title: "Climbing", description: "Climbing for beginners", location: "Montserrat, Catalunya, Spain", start_date: DateTime.new(2023,10,10), end_date: DateTime.new(2023,10,10), capacity: 10, user: steve)
 climbing.photo.attach(io: photo, filename: "climbing.jpg", content_type: "image/jpg")
 climbing.save!
 
@@ -97,6 +97,12 @@ request_emma_festival = Request.create!(status: "accepted", event: festival, use
 request_steve_festival = Request.create!(status: "accepted", event: festival, user: steve)
 request_john_trekking = Request.create!(status: "accepted", event: trekking, user: john)
 request_paul_trekking = Request.create!(status: "accepted", event: trekking, user: paul)
+Request.create!(status: "accepted", event: football, user: james)
+Request.create!(status: "accepted", event: football, user: john)
+Request.create!(status: "accepted", event: football, user: maria)
+Request.create!(status: "accepted", event: football, user: steve)
+Request.create!(status: "accepted", event: football, user: emma)
+
 
 # Create Chat:
 chat_james_maria = Chatroom.create!(is_direct: true)
