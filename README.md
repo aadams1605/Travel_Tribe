@@ -7,6 +7,6 @@ This app was created in just under two weeks by a team of four, using Ruby on Ra
 
 <strong>CURRENTLY IN PROGRESS</strong>
 
-Making the app responsive for desktop (as this is a mobile-first app)
-Refactoring the code to make it cleaner
-Refactoring the CSS to make it more consistent
+(1) Making the app responsive for desktop (as this is a mobile-first app)
+(2) Refactoring the code to make it cleaner
+(3) Refactoring the CSS to make it more consistent
