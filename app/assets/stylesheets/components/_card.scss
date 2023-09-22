@@ -22,7 +22,7 @@
   width: 100%;
   border-radius: 20px 20px 0px 0px;
   object-fit: cover;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
 
 .event-descriptions {
@@ -56,18 +56,18 @@
   font-family: Roboto;
 }
 
-.events-image{
+.events-image {
   height: 300px;
   width: 100%;
   object-fit: cover;
 }
 
-.icon-right{
+.icon-right {
   display: flex;
   justify-content: flex-start;
 }
 
-.cards{
+.cards {
   display: grid;
   grid-gap: 16px;
   padding: 16px;

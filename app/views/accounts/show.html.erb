@@ -10,7 +10,10 @@
           <div class="attending-accepted"><%= link_to event.title, event_url(event), class:"links-white" %></div>
         <% end %>
         <% if event.start_date >= Date.today && event.requests.exists?(status: "pending") %>
-          <div class="attending-pending"><%= link_to event.title, event_url(event), class:"links-white" %> <h6><em>Pending</em></h6> </div>
+          <div class="attending-pending">
+            <%= link_to event.title, event_url(event), class:"links-white" %>
+            <h6><em>Pending</em></h6>
+          </div>
         <% end %>
       <% end %>
     </div>
@@ -50,24 +53,31 @@
     </div>
   </div>
 </div>
-  <div class="container">
+
+<div class="container">
   <div class="card-show">
-  <div class="card-grid">
-    <% if @user.photo.key %>
-      <%= cl_image_tag @user.photo.key %>
-    <% end %>
-    <div class="event-descriptions">
-      <div class="description-column">
-        <div class="row">
-          <h2 class="title"> <%= @user.username %></h2>
-          <h2 class="listing"> <%= @user.age %> years old</h2>
-          <h2 class="listing"> <%= @user.description %></h2>
-          <div class="icon-right"><h2 class="listing"><i class="fa-sharp fa-solid fa-location-dot" style="color: #ffffff;"></i> <%= @user.location %></h2></div>
+    <div class="card-grid">
+      <% if @user.photo.key %>
+        <%= cl_image_tag @user.photo.key %>
+      <% end %>
+      <div class="event-descriptions">
+        <div class="description-column">
+          <div class="row">
+            <h2 class="title"> <%= @user.username %></h2>
+            <h2 class="listing"> <%= @user.age %> years old</h2>
+            <h2 class="listing"> <%= @user.description %></h2>
+            <div class="icon-right">
+              <h2 class="listing">
+                <i class="fa-sharp fa-solid fa-location-dot" style="color: #ffffff;"></i>
+                <%= @user.location %>
+              </h2>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
   <%= button_to edit_user_registration_path(@user), method: :get, class: "button edit-account-button" do %>
     <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit Account
   <% end %>
+</div>
