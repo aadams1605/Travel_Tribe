@@ -16,34 +16,36 @@
     </div>
   </div>
 
-  <% if @no_results %>
-    <p>No results found.</p>
-  <% else %>
-    <% @events.each do |event|%>
-    <a href="<%= event_path(event) %>">
-      <div class="card-grid">
-        <% if event.photo.key %>
-          <%= cl_image_tag event.photo.key, crop: :fill, class:"events-image" %>
-        <% else %>
-          <%= image_tag "TT_Logo.png" %>
-        <% end %>
-        <div class="event-descriptions">
-          <div class="description-column">
-            <div class="row">
-              <h2 class="title"><%= event.title %></h2>
-                  <% if event.start_date != event.end_date %>
-                    <h2 class="listing"><%= event.start_date %> to <%= event.end_date %></h2>
-                  <% else %>
-                    <h2 class="listing"><%= event.start_date %></h2>
-                  <% end %>
-              <h2 class="listing"> <i class="fa-sharp fa-solid fa-location-dot" style="color: #ffffff;"></i> <%= event.location %></h2>
-              <div class="icon-right"><h2 class="listing"> <i class="fa-solid fa-user" style="color: #ffffff;"></i> <%= event.capacity %></h2></div>
+  <div class="cards">
+    <% if @no_results %>
+      <p>No results found.</p>
+    <% else %>
+      <% @events.each do |event|%>
+      <a href="<%= event_path(event) %>">
+          <div class="card-grid">
+            <% if event.photo.key %>
+              <%= cl_image_tag event.photo.key, crop: :fill, class:"events-image" %>
+            <% else %>
+              <%= image_tag "TT_Logo.png" %>
+            <% end %>
+            <div class="event-descriptions">
+              <div class="description-column">
+                <div class="row">
+                  <h2 class="title"><%= event.title %></h2>
+                      <% if event.start_date != event.end_date %>
+                        <h2 class="listing"><%= event.start_date %> to <%= event.end_date %></h2>
+                      <% else %>
+                        <h2 class="listing"><%= event.start_date %></h2>
+                      <% end %>
+                  <h2 class="listing"> <i class="fa-sharp fa-solid fa-location-dot" style="color: #ffffff;"></i> <%= event.location %></h2>
+                  <div class="icon-right"><h2 class="listing"> <i class="fa-solid fa-user" style="color: #ffffff;"></i> <%= event.capacity %></h2></div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <br>
-      </a>
+        <br>
+        </a>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
