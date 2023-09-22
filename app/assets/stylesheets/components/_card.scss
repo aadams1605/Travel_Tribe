@@ -74,16 +74,6 @@
   flex-grow: 1;
 }
 
-.card-show {
-  display: grid;
-  // grid-gap: 16px;
-  // padding: 16px;
-  // flex-grow: 1;
-  // max-width: 700px;
-  width: 700px;
-  margin: 0 auto;
-}
-
 @media (min-width: 769px) {
   .cards {
     grid-template-columns: 1fr 1fr;
@@ -92,8 +82,10 @@
 
 @media (min-width: 769px) {
   .card-show {
+    display: grid;
     grid-template-columns: 1fr;
     width: 700px;
+    margin: 0 auto;
   }
 }
 
