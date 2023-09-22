@@ -1,19 +1,18 @@
-<div class="container chatroom">
+<div class="container chatroom" style="min-height: 100vh">
   <% if @chatroom.event.present? %>
     <h2><%= link_to @chatroom.event.title, event_path(@chatroom.event), class:"chat-link" %></h2>
   <% else %>
-    <h2><%= link_to @direct_chat_user.username, user_path(@direct_chat_user) %></h2>
+  <h2><%= link_to @direct_chat_user.username, user_path(@direct_chat_user) %></h2>
   <% end %>
   <div class="chatroom-container"
     data-controller="chatroom-subscription"
-    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-    <div class="messages" data-chatroom-subscription-target="messages">
-      <% @chatroom.messages.each do |message| %>
-        <%= render "messages/messages", message: message %>
-      <% end %>
-      </div>
-    <div class="box-message">
-      <%= render "messages/new", chatroom: @chatroom %>
-    </div>
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  <div class="messages" data-chatroom-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+      <%= render "messages/messages", message: message %>
+  <% end %>
+  </div>
+  <div class="box-message">
+    <%= render "messages/new", chatroom: @chatroom %>
   </div>
 </div>

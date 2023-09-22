@@ -6,6 +6,7 @@
   border-style: none;
   margin-top: 8px;
   font-family: Roboto;
+  display: flex;
 }
 
 .edit-account-button {
@@ -17,13 +18,15 @@
 .chat-button-container {
   display: flex;
   justify-content: space-between;
-  width: 42%;
   margin: 0 auto;
 }
 
-.chat-button-container link{
+.chat-button-container .button {
+  margin-right: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-family: Roboto;
+}
+
+.chat-button-container .button i {
+  margin-right: 5px;
 }

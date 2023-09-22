@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  
+
   <br>
   <h2 class="avatar-text"> <%= link_to image_tag(url_for(@event.user.photo), id: "avatar-small"), user_path(@event.user), style: "object-fit: cover" %> <%= @event.user.username  %> posted this event</h2>
 </div>
@@ -35,7 +35,7 @@
     <span>The event is now full.</span>
   <% end %>
 
-  <div class="chat-button-container link">
+  <div class="chat-button-container">
     <% if @event.user == current_user %>
       <%= button_to edit_event_path(@event), method: :get, class: "button" do %>
         <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit
@@ -61,7 +61,7 @@
 
   <div class="container-join-event">
     <div class="event-links">
-      <div class="chat-button-container link">
+      <div class="chat-button-container">
         <% if @attendees.include?(current_user) || @event.user == current_user %>
           <%= button_to "Event Chat", chatroom_path(@chatroom, template: "chatrooms/show"), method: :get, class: "button" %>
         <% end %>
