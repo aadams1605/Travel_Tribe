@@ -18,7 +18,7 @@
 }
 
 .card-grid img {
-  height: 250px;
+  height: 300px;
   width: 100%;
   border-radius: 20px 20px 0px 0px;
   object-fit: cover;
@@ -74,10 +74,26 @@
   flex-grow: 1;
 }
 
+.card-show {
+  display: grid;
+  // grid-gap: 16px;
+  // padding: 16px;
+  // flex-grow: 1;
+  // max-width: 700px;
+  width: 700px;
+  margin: 0 auto;
+}
 
 @media (min-width: 769px) {
   .cards {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  .card-show {
+    grid-template-columns: 1fr;
+    width: 700px;
   }
 }
 
