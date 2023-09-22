@@ -1,20 +1,23 @@
 <div class="container">
-  <div class="card-grid">
-      <% if @event.photo.key %>
-        <%= cl_image_tag @event.photo.key %>
-      <% end %>
-    <div class="event-descriptions">
-      <div class="description-column">
-        <div class="row">
-          <h2 class="title"> <%= @event.title %></h2>
-          <h2 class="listing"><%= @event.description %></h2>
-          <h2 class="listing"><%= @event.start_date %> to <%= @event.end_date %></h2>
-          <h2 class="listing"> <i class="fa-sharp fa-solid fa-location-dot" style="color: #ffffff;"></i> <%= @event.location %></h2>
-          <div class="icon-right"><h2 class="listing"> <i class="fa-solid fa-user" style="color: #ffffff;"></i> <%= @event.capacity %></h2></div>
+  <div class="card-show">
+    <div class="card-grid">
+        <% if @event.photo.key %>
+          <%= cl_image_tag @event.photo.key %>
+        <% end %>
+      <div class="event-descriptions">
+        <div class="description-column">
+          <div class="row">
+            <h2 class="title"> <%= @event.title %></h2>
+            <h2 class="listing"><%= @event.description %></h2>
+            <h2 class="listing"><%= @event.start_date %> to <%= @event.end_date %></h2>
+            <h2 class="listing"> <i class="fa-sharp fa-solid fa-location-dot" style="color: #ffffff;"></i> <%= @event.location %></h2>
+            <div class="icon-right"><h2 class="listing"> <i class="fa-solid fa-user" style="color: #ffffff;"></i> <%= @event.capacity %></h2></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  
   <br>
   <h2 class="avatar-text"> <%= link_to image_tag(url_for(@event.user.photo), id: "avatar-small"), user_path(@event.user), style: "object-fit: cover" %> <%= @event.user.username  %> posted this event</h2>
 </div>
