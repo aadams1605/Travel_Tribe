@@ -1,9 +1,9 @@
 <div class="container">
   <div class="card-show">
     <div class="card-grid">
-        <% if @event.photo.key %>
-          <%= cl_image_tag @event.photo.key %>
-        <% end %>
+      <% if @event.photo.key %>
+        <%= cl_image_tag @event.photo.key %>
+      <% end %>
       <div class="event-descriptions">
         <div class="description-column">
           <div class="row">
@@ -19,12 +19,15 @@
   </div>
 
   <br>
-  <h2 class="avatar-text"> <%= link_to image_tag(url_for(@event.user.photo), id: "avatar-small"), user_path(@event.user), style: "object-fit: cover" %> <%= @event.user.username  %> posted this event</h2>
+  <h2 class="avatar-text">
+    <%= link_to image_tag(url_for(@event.user.photo), id: "avatar-small"), user_path(@event.user), style: "object-fit: cover" %>
+    <%= @event.user.username %> posted this event
+  </h2>
 </div>
 
 <div class="container-join-event">
   <% if Request.find_by(event:@event, user:current_user, status: "accepted") %>
-    <%= button_to "Leave Event", request_path(Request.find_by(event:@event, user:current_user)), method: :delete, class: "button" %>
+    <%= button_to "Leave Event", request_path(Request.find_by(event: @event, user:current_user)), method: :delete, class: "button" %>
   <% elsif Request.find_by(event:@event, user:current_user, status: "pending") %>
     <span>Your request is pending.</span>
   <% elsif Request.find_by(event:@event, user:current_user, status: "rejected") %>
@@ -42,9 +45,8 @@
       <% end %>
     <% end %>
 
-
     <% if @event.user == current_user %>
-      <%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}, class: "button" do %>
+      <%= link_to event_path(@event), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?" }, class: "button" do %>
         <i class="fa-sharp fa-regular fa-circle-xmark" style="color: #ffffff;"></i> Delete
       <% end %>
     <% end %>
@@ -59,16 +61,15 @@
   </div>
 </div>
 
-  <div class="container-join-event">
-    <div class="event-links">
-      <div class="chat-button-container">
-        <% if @attendees.include?(current_user) || @event.user == current_user %>
-          <%= button_to "Event Chat", chatroom_path(@chatroom, template: "chatrooms/show"), method: :get, class: "button" %>
-        <% end %>
-      </div>
+<div class="container-join-event">
+  <div class="event-links">
+    <div class="chat-button-container">
+      <% if @attendees.include?(current_user) || @event.user == current_user %>
+        <%= button_to "Event Chat", chatroom_path(@chatroom, template: "chatrooms/show"), method: :get, class: "button" %>
+      <% end %>
     </div>
   </div>
-
+</div>
 
 <div class="row">
   <p>Attendees:</p>
