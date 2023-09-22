@@ -84,12 +84,12 @@ louvre.photo.attach(io: photo, filename: "louvre.jpg", content_type: "image/jpg"
 louvre.save!
 
 photo = URI.open("https://barcelonaexclusiveprivatetours.com/assets/iblog/post/gallery/128/dali-museum-tour-from-barcelona-3.jpg")
-dali = Event.new(title: "Dali Museum", description: "A day in Dali's museum", location: "Plaça Gala i Salvador Dalí, 5, 17600 Figueres, Girona, Spain", start_date: DateTime.new(2023,9,28), end_date: DateTime.new(2023,9,28), capacity: 6, user: emma)
+dali = Event.new(title: "Dali Museum", description: "A day in Dali's museum", location: "17600 Figueres, Girona, Spain", start_date: DateTime.new(2023,9,28), end_date: DateTime.new(2023,9,28), capacity: 6, user: emma)
 dali.photo.attach(io: photo, filename: "dali.jpg", content_type: "image/jpg")
 dali.save!
 
 photo = URI.open("https://www.planetware.com/photos-large/F/france-eiffel-tower.jpg")
-eiffel = Event.new(title: "Eiffel Tower", description: "Visiting the Eiffel Tower at night", location: "Champ de Mars, 5 Av. Anatole France, 75007 Paris, France", start_date: DateTime.new(2023,10,30), end_date: DateTime.new(2023,10,30), capacity: 10, user: julia)
+eiffel = Event.new(title: "Eiffel Tower", description: "Visiting the Eiffel Tower at night", location: "5 Av. Anatole France, 75007 Paris, France", start_date: DateTime.new(2023,10,30), end_date: DateTime.new(2023,10,30), capacity: 10, user: julia)
 eiffel.photo.attach(io: photo, filename: "eiffel.jepg", content_type: "image/jepg")
 eiffel.save!
 
