@@ -1,9 +1,9 @@
 <h2 style="margin-left: 8px;">Your Chats</h2>
 
-  <% @all_chatrooms.each do |chatroom| %>
+<% @all_chatrooms.each do |chatroom| %>
   <div class="notification">
     <div class="message-content">
-    <% if chatroom.event.present? %>
+      <% if chatroom.event.present? %>
         <h3><%= link_to chatroom.event.title, chatroom_path(chatroom), class:"text-chatroom" %></h3>
           <% if chatroom.event.photo.key %>
             <%= cl_image_tag chatroom.event.photo.key, crop: :fill, class:"avatar" %>
@@ -22,4 +22,4 @@
       <% end %>
     </div>
   </div>
-  <% end %>
+<% end %>
