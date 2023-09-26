@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-controller="toggle">
   <%= form_with(url: events_path, method: "get", local: true, class: "search-form-control form-group") do |form| %>
     <%= form.text_field :query, class: "form-control string required", id: "search_query", placeholder: "Search Event by name/location" %>
     <%= form.button type: "submit", class: "btn btn-flat" do %>
@@ -6,7 +6,7 @@
     <% end %>
   <% end %>
 
-  <div data-controller="toggle" class="mt-5">
+  <div  class="mt-5">
     <div class="toggle-map" data-action="click->toggle#fire">
       <i class="fa-solid fa-map-location-dot" style="color: #0b7176;"></i>
       <p data-toggle-target="text"></p>
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="cards">
+  <div class="cards" data-toggle-target="cardsMap">
     <% if @no_results %>
       <p>No results found.</p>
     <% else %>
