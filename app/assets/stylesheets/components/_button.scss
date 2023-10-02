@@ -21,12 +21,12 @@
   margin: 0 auto;
 }
 
-.chat-button-container .button {
+.chat-button-container, .button {
   margin-right: 10px;
   display: flex;
   align-items: center;
 }
 
-.chat-button-container .button i {
+.chat-button-container, .button i {
   margin-right: 5px;
 }
