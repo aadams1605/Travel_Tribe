@@ -14,6 +14,7 @@
   width: 100%;
   z-index: 5;
 }
+
 .navbar-lewagon {
   justify-content: space-between;
   background: #07474B;
@@ -26,15 +27,18 @@
   width: 50%;
   align-items: center;
 }
+
 #navbarSupportedContent > * {
   margin-left: 12px;
 }
+
 .container-nav {
   padding: 0px 15px;
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
