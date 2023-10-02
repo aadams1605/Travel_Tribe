@@ -20,7 +20,7 @@ a {
   font-family: Roboto;
 }
 
-.notification, .notification-content {
+.notification .notification-content {
   flex-grow: 1;
 }
 
@@ -33,23 +33,23 @@ a {
   color: #999999;
   font-weight: bold;
 }
-.notification, .notification-actions {
+.notification .notification-actions {
   opacity: 0;
   display: flex;
   transition: ease .3s;
 }
 
-.notification:hover, .notification-actions {
+.notification:hover .notification-actions {
   opacity: 1;
 }
 
-.notification, .notification-actions a {
+.notification .notification-actions a {
   color: #999999;
   margin-left: 16px;
   font-size: 14px;
 }
 
-.notification, .notification-actions a:hover {
+.notification .notification-actions a:hover {
   color: #555555;
 }
 
