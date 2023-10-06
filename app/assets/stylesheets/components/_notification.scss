@@ -70,3 +70,26 @@ a {
 #notification-timestamp {
   text-align: right;
 }
+
+@media (min-width: 550px) {
+  .notification-content {
+    flex-direction: row;
+    align-items: center;
+  }
+  .notification-content p {
+    order: 1;
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 10px;
+  }
+  .avatar {
+    order: 0;
+  }
+  #notification-timestamp {
+    order: 2;
+    margin-left: auto;
+  }
+  .fa-solid {
+    order: 3;
+  }
+}
